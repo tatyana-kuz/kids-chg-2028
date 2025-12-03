@@ -115,6 +115,12 @@
             max-width: 800px;
             position: relative;
             z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%;
+            padding: 60px 0;
         }
 
         .hero h1 {
@@ -124,6 +130,7 @@
             margin-bottom: 60px;
             line-height: 0.9;
             position: relative;
+            margin-top: 20px;
         }
 
         .hero h1 strong {
@@ -148,7 +155,8 @@
         }
 
         .hero-title-block {
-            margin-bottom: 60px;
+            margin-top: auto;
+            margin-bottom: 100px; /* Отступ от стрелки */
         }
 
         .hero-subtitle {
@@ -158,6 +166,72 @@
             letter-spacing: 2px;
             text-transform: uppercase;
             line-height: 1.6;
+        }
+
+        /* Стрелка в круге */
+        .scroll-indicator {
+            position: relative;
+            margin-top: auto;
+            margin-bottom: 60px; /* Отступ от низа экрана */
+            animation: fadeIn 1s ease 0.5s both;
+        }
+
+        .arrow-circle {
+            width: 60px;
+            height: 60px;
+            border: 2px solid rgba(44, 85, 48, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            animation: pulse-circle 2s infinite;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .arrow-circle:hover {
+            transform: scale(1.1);
+            border-color: rgba(44, 85, 48, 0.5);
+        }
+
+        .arrow-circle::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border: 2px solid rgba(44, 85, 48, 0.1);
+            border-radius: 50%;
+            animation: pulse-outer 2s infinite;
+        }
+
+        .arrow-inner {
+            font-size: 24px;
+            color: #2c5530;
+            animation: bounce-arrow 2s infinite;
+        }
+
+        @keyframes pulse-circle {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        @keyframes pulse-outer {
+            0% { transform: scale(1); opacity: 0.3; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+
+        @keyframes bounce-arrow {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-8px); }
+            60% { transform: translateY(-4px); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .container {
@@ -306,6 +380,11 @@
 
             .hero h1 {
                 font-size: 48px;
+                margin-top: 20px;
+            }
+
+            .hero-title-block {
+                margin-bottom: 80px;
             }
 
             .section-header h2 {
@@ -324,24 +403,23 @@
             .chart-section {
                 padding: 25px;
             }
+            
+            .arrow-circle {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .arrow-inner {
+                font-size: 20px;
+            }
+            
+            .scroll-indicator {
+                margin-bottom: 40px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Yandex.Metrika counter -->
-    <script type="text/javascript">
-        (function(m,e,t,r,i,k,a){
-            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-            m[i].l=1*new Date();
-            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=105524102', 'ym');
-
-        ym(105524102, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
-    </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/105524102" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-    <!-- /Yandex.Metrika counter -->
-
     <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-container">
@@ -356,16 +434,23 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1 style="margin-top: 60px;"><strong>Дети Черноголовки</strong><br><span class="years">2023-2028</span></h1>
+            <h1><strong>Дети Черноголовки</strong><br><span class="years">2023-2028</span></h1>
             
             <div class="hero-title-block">
                 <p class="hero-subtitle">Неофициальная визуализация данных<br>из постановления <a href="https://docs.yandex.ru/docs/view?url=ya-disk-public%3A%2F%2FqqOmze%2FcR3S6yuulpizA8%2Bo3GaRDWmDUMPGQWASMerZ6pU%2BZEv0wgS2l6p6F7Yutq%2FJ6bpmRyOJonT3VoXnDag%3D%3D&name=1121%20%D0%BE%D1%82%2013.10.2025.pdf&nosw=1" target="_blank" style="color: #2c5530;">№ 1121 от 13.10.2025</a></p>
+            </div>
+            
+            <!-- Стрелка в круге -->
+            <div class="scroll-indicator">
+                <div class="arrow-circle">
+                    <div class="arrow-inner">↓</div>
+                </div>
             </div>
         </div>
     </section>
 
     <div class="container">
-        <!-- График 1: Общая численность детей -->
+        <!-- График: Общая численность детей -->
         <section id="total" class="chart-section">
             <h2 class="chart-title">Общая численность детей в Черноголовке</h2>
             <div class="chart-container">
@@ -391,7 +476,7 @@
             </div>
         </section>
 
-        <!-- График 5: Доля детей от общего населения -->
+        <!-- График: Доля детей от общего населения -->
         <section class="chart-section">
             <h2 class="chart-title">Динамика доли детского населения в Черноголовке</h2>
             <div class="chart-container">
@@ -406,7 +491,7 @@
                     <div class="stat-label">Доля детей в 2023</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-value negative-change">↓ 15.3%</div>
+                    <div class="stat-value">15.3%</div>
                     <div class="stat-label">Доля детей в 2028</div>
                 </div>
                 <div class="stat-card">
@@ -417,7 +502,7 @@
             </div>
         </section>
 
-        <!-- График 2: Дети по возрастным группам -->
+        <!-- График: Дети по возрастным группам -->
         <section id="age" class="chart-section">
             <h2 class="chart-title">Дети Черноголовки по возрастным группам</h2>
             <div class="chart-container">
@@ -454,7 +539,7 @@
         // Данные
         const years = [2023, 2024, 2025, 2026, 2027, 2028];
         
-        // График 1: Общая численность детей
+        // График: Общая численность детей
         new Chart(document.getElementById('totalChildrenChart'), {
             type: 'line',
             data: {
@@ -514,7 +599,7 @@
             }
         });
 
-        // График 2: Дети по возрастным группам
+        // График: Дети по возрастным группам
         new Chart(document.getElementById('ageGroupsChart'), {
             type: 'bar',
             data: {
@@ -580,7 +665,7 @@
             }
         });
 
-        // График 5: Доля детей от общего населения
+        // График: Доля детей от общего населения
         new Chart(document.getElementById('childrenShareChart'), {
             type: 'line',
             data: {
@@ -658,6 +743,18 @@
                     top: targetPosition,
                     behavior: 'smooth'
                 });
+            });
+        });
+
+        // Добавляем клик на стрелку для прокрутки к первому графику
+        document.querySelector('.arrow-circle').addEventListener('click', function() {
+            const target = document.querySelector('#total');
+            const offset = 80;
+            const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+            
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
             });
         });
     </script>
