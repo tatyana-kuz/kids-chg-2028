@@ -21,7 +21,7 @@
             overflow-x: hidden;
         }
 
-        /* Navigation */
+        /* ===== НАВИГАЦИЯ ===== */
         nav {
             position: fixed;
             top: 0;
@@ -98,7 +98,7 @@
             font-weight: 700;
         }
 
-        /* Hero Section */
+        /* ===== ПЕРВЫЙ ЭКРАН ===== */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -120,7 +120,7 @@
             align-items: center;
             justify-content: space-between;
             height: 100%;
-            padding: 60px 0;
+            padding: 120px 0 30px 0;
         }
 
         .hero h1 {
@@ -130,7 +130,6 @@
             margin-bottom: 60px;
             line-height: 0.9;
             position: relative;
-            margin-top: 20px;
         }
 
         .hero h1 strong {
@@ -155,8 +154,7 @@
         }
 
         .hero-title-block {
-            margin-top: auto;
-            margin-bottom: 100px; /* Отступ от стрелки */
+            margin-bottom: 60px;
         }
 
         .hero-subtitle {
@@ -168,11 +166,9 @@
             line-height: 1.6;
         }
 
-        /* Стрелка в круге */
+        /* ===== СТРЕЛКА ДЛЯ ПРОКРУТКИ ===== */
         .scroll-indicator {
-            position: relative;
-            margin-top: auto;
-            margin-bottom: 60px; /* Отступ от низа экрана */
+            margin-bottom: 20px;
             animation: fadeIn 1s ease 0.5s both;
         }
 
@@ -240,7 +236,7 @@
             padding: 20px;
         }
 
-        /* Sections */
+        /* ===== СЕКЦИИ С ГРАФИКАМИ ===== */
         section {
             padding: 120px 20px;
             position: relative;
@@ -287,7 +283,7 @@
             margin: 0 auto;
         }
 
-        /* Chart Sections */
+        /* ===== КАРТОЧКИ С ГРАФИКАМИ ===== */
         .chart-section {
             background: white;
             margin-bottom: 60px;
@@ -373,6 +369,7 @@
             line-height: 1.6;
         }
 
+        /* ===== АДАПТИВНОСТЬ ===== */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -380,11 +377,10 @@
 
             .hero h1 {
                 font-size: 48px;
-                margin-top: 20px;
             }
 
-            .hero-title-block {
-                margin-bottom: 80px;
+            .hero-content {
+                padding: 100px 0 20px 0;
             }
 
             .section-header h2 {
@@ -414,13 +410,13 @@
             }
             
             .scroll-indicator {
-                margin-bottom: 40px;
+                margin-bottom: 10px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- НАВИГАЦИЯ -->
     <nav id="navbar">
         <div class="nav-container">
             <a href="#home" class="logo">ЧЕРНОГОЛОВКА</a>
@@ -431,7 +427,7 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- ПЕРВЫЙ ЭКРАН -->
     <section id="home" class="hero">
         <div class="hero-content">
             <h1><strong>Дети Черноголовки</strong><br><span class="years">2023-2028</span></h1>
@@ -440,7 +436,7 @@
                 <p class="hero-subtitle">Неофициальная визуализация данных<br>из постановления <a href="https://docs.yandex.ru/docs/view?url=ya-disk-public%3A%2F%2FqqOmze%2FcR3S6yuulpizA8%2Bo3GaRDWmDUMPGQWASMerZ6pU%2BZEv0wgS2l6p6F7Yutq%2FJ6bpmRyOJonT3VoXnDag%3D%3D&name=1121%20%D0%BE%D1%82%2013.10.2025.pdf&nosw=1" target="_blank" style="color: #2c5530;">№ 1121 от 13.10.2025</a></p>
             </div>
             
-            <!-- Стрелка в круге -->
+            <!-- СТРЕЛКА ДЛЯ ПРОКРУТКИ -->
             <div class="scroll-indicator">
                 <div class="arrow-circle">
                     <div class="arrow-inner">↓</div>
@@ -450,7 +446,7 @@
     </section>
 
     <div class="container">
-        <!-- График: Общая численность детей -->
+        <!-- ГРАФИК 1: Общая численность детей -->
         <section id="total" class="chart-section">
             <h2 class="chart-title">Общая численность детей в Черноголовке</h2>
             <div class="chart-container">
@@ -476,7 +472,7 @@
             </div>
         </section>
 
-        <!-- График: Доля детей от общего населения -->
+        <!-- ГРАФИК 2: Доля детей от общего населения -->
         <section class="chart-section">
             <h2 class="chart-title">Динамика доли детского населения в Черноголовке</h2>
             <div class="chart-container">
@@ -502,7 +498,7 @@
             </div>
         </section>
 
-        <!-- График: Дети по возрастным группам -->
+        <!-- ГРАФИК 3: Дети по возрастным группам -->
         <section id="age" class="chart-section">
             <h2 class="chart-title">Дети Черноголовки по возрастным группам</h2>
             <div class="chart-container">
@@ -536,10 +532,10 @@
         const primaryColor = '#2c5530';
         const primaryLight = 'rgba(44, 85, 48, 0.1)';
         
-        // Данные
+        // Данные для графиков
         const years = [2023, 2024, 2025, 2026, 2027, 2028];
         
-        // График: Общая численность детей
+        // ===== ГРАФИК 1: Общая численность детей =====
         new Chart(document.getElementById('totalChildrenChart'), {
             type: 'line',
             data: {
@@ -599,7 +595,7 @@
             }
         });
 
-        // График: Дети по возрастным группам
+        // ===== ГРАФИК 2: Дети по возрастным группам =====
         new Chart(document.getElementById('ageGroupsChart'), {
             type: 'bar',
             data: {
@@ -665,7 +661,7 @@
             }
         });
 
-        // График: Доля детей от общего населения
+        // ===== ГРАФИК 3: Доля детей от общего населения =====
         new Chart(document.getElementById('childrenShareChart'), {
             type: 'line',
             data: {
@@ -731,12 +727,12 @@
             }
         });
 
-        // Плавная прокрутка
+        // ===== ПЛАВНАЯ ПРОКРУТКА =====
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
-                const offset = 80; // Отступ для навигации
+                const offset = 80;
                 const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
                 
                 window.scrollTo({
@@ -746,7 +742,7 @@
             });
         });
 
-        // Добавляем клик на стрелку для прокрутки к первому графику
+        // ===== КЛИК НА СТРЕЛКУ =====
         document.querySelector('.arrow-circle').addEventListener('click', function() {
             const target = document.querySelector('#total');
             const offset = 80;
