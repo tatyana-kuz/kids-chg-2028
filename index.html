@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Дети Черноголовки: демография 2023-2028</title>
+    <title>Дети наукограда: демография 2023-2028</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -21,7 +21,7 @@
             overflow-x: hidden;
         }
 
-        /* ===== НАВИГАЦИЯ ===== */
+        /* НАВИГАЦИЯ */
         nav {
             position: fixed;
             top: 0;
@@ -98,7 +98,7 @@
             font-weight: 700;
         }
 
-        /* ===== ПЕРВЫЙ ЭКРАН ===== */
+        /* ПЕРВЫЙ ЭКРАН */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -166,7 +166,7 @@
             line-height: 1.6;
         }
 
-        /* ===== СТРЕЛКА ДЛЯ ПРОКРУТКИ ===== */
+        /* СТРЕЛКА ДЛЯ ПРОКРУТКИ */
         .scroll-indicator {
             margin-bottom: 20px;
             animation: fadeIn 1s ease 0.5s both;
@@ -236,7 +236,7 @@
             padding: 20px;
         }
 
-        /* ===== СЕКЦИИ С ГРАФИКАМИ ===== */
+        /* СЕКЦИИ С ГРАФИКАМИ */
         section {
             padding: 120px 20px;
             position: relative;
@@ -283,7 +283,7 @@
             margin: 0 auto;
         }
 
-        /* ===== КАРТОЧКИ С ГРАФИКАМИ ===== */
+        /* КАРТОЧКИ С ГРАФИКАМИ */
         .chart-section {
             background: white;
             margin-bottom: 60px;
@@ -311,6 +311,83 @@
             position: relative;
             height: 400px;
             margin-bottom: 30px;
+        }
+
+        /* СТИЛИ ДЛЯ ДЕТАЛЬНОГО РАСПРЕДЕЛЕНИЯ ВОЗРАСТОВ */
+        .chart-container-large {
+            height: 600px;
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .chart-explanation {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 6px;
+            margin: 30px 0;
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .legend-hint {
+            background: #f0f7f1;
+            padding: 12px 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            border-left: 4px solid #2c5530;
+            font-size: 13px;
+            color: #666;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .legend-hint::before {
+            content: "💡";
+            font-size: 16px;
+        }
+
+        .highlight-info {
+            background: #f0f7f1;
+            padding: 20px;
+            border-radius: 6px;
+            margin-top: 20px;
+            border-left: 4px solid #2c5530;
+            font-size: 14px;
+        }
+
+        .extreme-ages-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .extreme-ages-table th {
+            text-align: left;
+            padding: 12px 15px;
+            font-weight: 600;
+            color: #2c5530;
+            border-bottom: 2px solid #2c5530;
+            font-size: 14px;
+        }
+
+        .extreme-ages-table td {
+            padding: 10px 15px;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 14px;
+        }
+
+        .extreme-ages-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .year-color {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
         }
 
         .stats-grid {
@@ -359,17 +436,7 @@
             margin-top: 8px;
         }
 
-        .chart-explanation {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 6px;
-            margin-top: 20px;
-            font-size: 14px;
-            color: #666;
-            line-height: 1.6;
-        }
-
-        /* ===== АДАПТИВНОСТЬ ===== */
+        /* АДАПТИВНОСТЬ */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -396,6 +463,10 @@
                 height: 300px;
             }
             
+            .chart-container-large {
+                height: 400px;
+            }
+            
             .chart-section {
                 padding: 25px;
             }
@@ -411,6 +482,12 @@
             
             .scroll-indicator {
                 margin-bottom: 10px;
+            }
+            
+            .extreme-ages-table th,
+            .extreme-ages-table td {
+                padding: 8px 10px;
+                font-size: 13px;
             }
         }
     </style>
@@ -430,7 +507,7 @@
     <!-- ПЕРВЫЙ ЭКРАН -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1><strong>Дети Черноголовки</strong><br><span class="years">2023-2028</span></h1>
+            <h1><strong>Дети наукограда</strong><br><span class="years">2023-2028</span></h1>
             
             <div class="hero-title-block">
                 <p class="hero-subtitle">Неофициальная визуализация данных<br>из постановления <a href="https://docs.yandex.ru/docs/view?url=ya-disk-public%3A%2F%2FqqOmze%2FcR3S6yuulpizA8%2Bo3GaRDWmDUMPGQWASMerZ6pU%2BZEv0wgS2l6p6F7Yutq%2FJ6bpmRyOJonT3VoXnDag%3D%3D&name=1121%20%D0%BE%D1%82%2013.10.2025.pdf&nosw=1" target="_blank" style="color: #2c5530;">№ 1121 от 13.10.2025</a></p>
@@ -474,7 +551,7 @@
 
         <!-- ГРАФИК 2: Доля детей от общего населения -->
         <section class="chart-section">
-            <h2 class="chart-title">Динамика доли детского населения в Черноголовке</h2>
+            <h2 class="chart-title">Динамика доли детского населения</h2>
             <div class="chart-container">
                 <canvas id="childrenShareChart"></canvas>
             </div>
@@ -500,7 +577,12 @@
 
         <!-- ГРАФИК 3: Дети по возрастным группам -->
         <section id="age" class="chart-section">
-            <h2 class="chart-title">Дети Черноголовки по возрастным группам</h2>
+            <h2 class="chart-title">Дети по возрастным группам</h2>
+            
+            <div class="legend-hint">
+                Нажмите на название возрастной группы в легенде, чтобы скрыть или показать её на графике
+            </div>
+            
             <div class="chart-container">
                 <canvas id="ageGroupsChart"></canvas>
             </div>
@@ -525,6 +607,54 @@
                 </div>
             </div>
         </section>
+
+        <!-- ГРАФИК 4: Детальное распределение по возрастам -->
+        <section class="chart-section">
+            <h2 class="chart-title">Детальное распределение детей по возрастам</h2>
+            
+            <div class="legend-hint">
+                Нажмите на год в легенде, чтобы скрыть или показать его на графике
+            </div>
+            
+            <div class="chart-container-large">
+                <canvas id="detailedAgesChart"></canvas>
+            </div>
+
+            <div class="chart-explanation">
+                График показывает численность детей по каждому возрасту от 0 до 17 лет по данным на 2023, 2025 (оценка) и 2028 (прогноз) годы. Видно, что самые многочисленные группы в 2023 году – дети 7-12 лет, а к 2028 году сохранится относительно ровное распределение с небольшими пиками в младших возрастах.
+            </div>
+
+            <div class="highlight-info">
+                <h3 style="margin-bottom: 15px; color: #2c5530; font-size: 16px;">Возрастные группы, в которых больше всего и меньше всего детей</h3>
+                <table class="extreme-ages-table">
+                    <thead>
+                        <tr>
+                            <th>Год</th>
+                            <th>Самый многочисленный возраст</th>
+                            <th>Самый малочисленный возраст</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="year-color" style="background: #ff9e4a;"></span>2023</td>
+                            <td>11 лет</td>
+                            <td>0 лет</td>
+                        </tr>
+                        <tr>
+                            <td><span class="year-color" style="background: #6b9578;"></span>2025</td>
+                            <td>12 лет</td>
+                            <td>2 года</td>
+                        </tr>
+                        <tr>
+                            <td><span class="year-color" style="background: #999999;"></span>2028</td>
+                            <td>16 лет</td>
+                            <td>5 лет</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
     </div>
 
     <script>
@@ -535,7 +665,7 @@
         // Данные для графиков
         const years = [2023, 2024, 2025, 2026, 2027, 2028];
         
-        // ===== ГРАФИК 1: Общая численность детей =====
+        // ГРАФИК 1: Общая численность детей
         new Chart(document.getElementById('totalChildrenChart'), {
             type: 'line',
             data: {
@@ -556,6 +686,12 @@
                 plugins: {
                     legend: {
                         position: 'top',
+                        onClick: function(e, legendItem, legend) {
+                            const index = legendItem.datasetIndex;
+                            const ci = this.chart;
+                            ci.data.datasets[index].hidden = ci.data.datasets[index].hidden ? false : true;
+                            ci.update();
+                        }
                     },
                     tooltip: {
                         mode: 'index',
@@ -595,7 +731,7 @@
             }
         });
 
-        // ===== ГРАФИК 2: Дети по возрастным группам =====
+        // ГРАФИК 2: Дети по возрастным группам
         new Chart(document.getElementById('ageGroupsChart'), {
             type: 'bar',
             data: {
@@ -624,6 +760,12 @@
                 plugins: {
                     legend: {
                         position: 'top',
+                        onClick: function(e, legendItem, legend) {
+                            const index = legendItem.datasetIndex;
+                            const ci = this.chart;
+                            ci.data.datasets[index].hidden = ci.data.datasets[index].hidden ? false : true;
+                            ci.update();
+                        }
                     },
                     tooltip: {
                         callbacks: {
@@ -661,7 +803,7 @@
             }
         });
 
-        // ===== ГРАФИК 3: Доля детей от общего населения =====
+        // ГРАФИК 3: Доля детей от общего населения
         new Chart(document.getElementById('childrenShareChart'), {
             type: 'line',
             data: {
@@ -685,6 +827,12 @@
                 plugins: {
                     legend: {
                         position: 'top',
+                        onClick: function(e, legendItem, legend) {
+                            const index = legendItem.datasetIndex;
+                            const ci = this.chart;
+                            ci.data.datasets[index].hidden = ci.data.datasets[index].hidden ? false : true;
+                            ci.update();
+                        }
                     },
                     tooltip: {
                         callbacks: {
@@ -727,7 +875,235 @@
             }
         });
 
-        // ===== ПЛАВНАЯ ПРОКРУТКА =====
+        // ГРАФИК 4: Детальное распределение по возрастам
+        const ageLabels = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17'];
+        
+        const data2023 = [73, 77, 127, 170, 178, 194, 191, 225, 225, 245, 232, 278, 219, 206, 222, 208, 207, 204];
+        const data2025 = [85, 83, 77, 82, 134, 178, 184, 200, 233, 234, 252, 238, 285, 240, 285, 222, 207, 222];
+        const data2028 = [83, 85, 90, 92, 94, 88, 94, 144, 189, 196, 214, 210, 245, 244, 260, 243, 288, 223];
+
+        const getMaxIndex = (arr) => arr.indexOf(Math.max(...arr));
+        const getMinIndex = (arr) => arr.indexOf(Math.min(...arr));
+
+        const max2023 = getMaxIndex(data2023);
+        const min2023 = getMinIndex(data2023);
+        const max2025 = getMaxIndex(data2025);
+        const min2025 = getMinIndex(data2025);
+        const max2028 = getMaxIndex(data2028);
+        const min2028 = getMinIndex(data2028);
+
+        const detailedCtx = document.getElementById('detailedAgesChart').getContext('2d');
+        const detailedChart = new Chart(detailedCtx, {
+            type: 'line',
+            data: {
+                labels: ageLabels,
+                datasets: [
+                    {
+                        label: '2023',
+                        data: data2023,
+                        borderColor: '#ff9e4a',
+                        backgroundColor: 'rgba(255, 158, 74, 0.1)',
+                        borderWidth: 2,
+                        tension: 0.3,
+                        fill: false,
+                        pointBackgroundColor: data2023.map((value, index) => {
+                            if (index === max2023 || index === min2023) return '#ff9e4a';
+                            return '#ff9e4a';
+                        }),
+                        pointBorderColor: data2023.map((value, index) => {
+                            if (index === max2023 || index === min2023) return '#ff9e4a';
+                            return '#ff9e4a';
+                        }),
+                        pointRadius: data2023.map((value, index) => {
+                            if (index === max2023 || index === min2023) return 7;
+                            return 3;
+                        }),
+                        pointHoverRadius: data2023.map((value, index) => {
+                            if (index === max2023 || index === min2023) return 9;
+                            return 5;
+                        }),
+                        pointBorderWidth: data2023.map((value, index) => {
+                            if (index === max2023 || index === min2023) return 2;
+                            return 1;
+                        })
+                    },
+                    {
+                        label: '2025',
+                        data: data2025,
+                        borderColor: '#6b9578',
+                        backgroundColor: 'rgba(107, 149, 120, 0.1)',
+                        borderWidth: 2,
+                        tension: 0.3,
+                        fill: false,
+                        pointBackgroundColor: data2025.map((value, index) => {
+                            if (index === max2025 || index === min2025) return '#6b9578';
+                            return '#6b9578';
+                        }),
+                        pointBorderColor: data2025.map((value, index) => {
+                            if (index === max2025 || index === min2025) return '#6b9578';
+                            return '#6b9578';
+                        }),
+                        pointRadius: data2025.map((value, index) => {
+                            if (index === max2025 || index === min2025) return 7;
+                            return 3;
+                        }),
+                        pointHoverRadius: data2025.map((value, index) => {
+                            if (index === max2025 || index === min2025) return 9;
+                            return 5;
+                        }),
+                        pointBorderWidth: data2025.map((value, index) => {
+                            if (index === max2025 || index === min2025) return 2;
+                            return 1;
+                        })
+                    },
+                    {
+                        label: '2028',
+                        data: data2028,
+                        borderColor: '#999999',
+                        backgroundColor: 'rgba(153, 153, 153, 0.1)',
+                        borderWidth: 2,
+                        tension: 0.3,
+                        fill: false,
+                        borderDash: [5, 5],
+                        pointBackgroundColor: data2028.map((value, index) => {
+                            if (index === max2028 || index === min2028) return '#999999';
+                            return '#999999';
+                        }),
+                        pointBorderColor: data2028.map((value, index) => {
+                            if (index === max2028 || index === min2028) return '#999999';
+                            return '#999999';
+                        }),
+                        pointRadius: data2028.map((value, index) => {
+                            if (index === max2028 || index === min2028) return 7;
+                            return 3;
+                        }),
+                        pointHoverRadius: data2028.map((value, index) => {
+                            if (index === max2028 || index === min2028) return 9;
+                            return 5;
+                        }),
+                        pointBorderWidth: data2028.map((value, index) => {
+                            if (index === max2028 || index === min2028) return 2;
+                            return 1;
+                        })
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        onClick: function(e, legendItem, legend) {
+                            const index = legendItem.datasetIndex;
+                            const ci = this.chart;
+                            ci.data.datasets[index].hidden = ci.data.datasets[index].hidden ? false : true;
+                            ci.update();
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                const label = context.dataset.label;
+                                const value = context.parsed.y;
+                                const index = context.dataIndex;
+                                const year = label;
+                                
+                                let extraInfo = '';
+                                if (year === '2023') {
+                                    if (index === max2023) extraInfo = ' (самый многочисленный)';
+                                    if (index === min2023) extraInfo = ' (самый малочисленный)';
+                                } else if (year === '2025') {
+                                    if (index === max2025) extraInfo = ' (самый многочисленный)';
+                                    if (index === min2025) extraInfo = ' (самый малочисленный)';
+                                } else if (year === '2028') {
+                                    if (index === max2028) extraInfo = ' (самый многочисленный)';
+                                    if (index === min2028) extraInfo = ' (самый малочисленный)';
+                                }
+                                
+                                return `${label}: ${value} детей${extraInfo}`;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        title: {
+                            display: true,
+                            text: 'Численность детей'
+                        },
+                        min: 50,
+                        max: 300,
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.05)'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Возраст (количество лет)'
+                        },
+                        ticks: {
+                            maxRotation: 0,
+                            minRotation: 0,
+                            padding: 10,
+                            font: {
+                                size: 12
+                            }
+                        },
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.05)'
+                        }
+                    }
+                }
+            }
+        });
+
+        function addHoverEffects() {
+            const canvas = document.getElementById('detailedAgesChart');
+            const extremePoints = [
+                { year: '2023', index: max2023, color: '#ff9e4a' },
+                { year: '2023', index: min2023, color: '#ff9e4a' },
+                { year: '2025', index: max2025, color: '#6b9578' },
+                { year: '2025', index: min2025, color: '#6b9578' },
+                { year: '2028', index: max2028, color: '#999999' },
+                { year: '2028', index: min2028, color: '#999999' }
+            ];
+
+            canvas.addEventListener('mousemove', function(event) {
+                const rect = canvas.getBoundingClientRect();
+                const x = event.clientX - rect.left;
+                const y = event.clientY - rect.top;
+                
+                const points = detailedChart.getElementsAtEventForMode(
+                    event, 'nearest', { intersect: true }, true
+                );
+                
+                if (points.length) {
+                    const point = points[0];
+                    const datasetIndex = point.datasetIndex;
+                    const index = point.index;
+                    
+                    const isExtreme = extremePoints.some(p => {
+                        const yearMap = { '2023': 0, '2025': 1, '2028': 2 };
+                        return datasetIndex === yearMap[p.year] && index === p.index;
+                    });
+                    
+                    if (isExtreme) {
+                        canvas.style.cursor = 'pointer';
+                    } else {
+                        canvas.style.cursor = 'default';
+                    }
+                } else {
+                    canvas.style.cursor = 'default';
+                }
+            });
+        }
+
+        setTimeout(addHoverEffects, 1000);
+
+        // ПЛАВНАЯ ПРОКРУТКА
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -742,7 +1118,7 @@
             });
         });
 
-        // ===== КЛИК НА СТРЕЛКУ =====
+        // КЛИК НА СТРЕЛКУ
         document.querySelector('.arrow-circle').addEventListener('click', function() {
             const target = document.querySelector('#total');
             const offset = 80;
