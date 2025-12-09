@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Дети наукограда: демография 2023-2028</title>
+    <title>Дети Черноголовки: демография 2023-2028</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -353,7 +353,6 @@
             padding: 20px;
             border-radius: 6px;
             margin-top: 20px;
-            border-left: 4px solid #2c5530;
             font-size: 14px;
         }
 
@@ -367,8 +366,8 @@
             text-align: left;
             padding: 12px 15px;
             font-weight: 600;
-            color: #2c5530;
-            border-bottom: 2px solid #2c5530;
+            color: #ffffff;
+            background-color: #2c5530;
             font-size: 14px;
         }
 
@@ -436,6 +435,177 @@
             margin-top: 8px;
         }
 
+        /* СТИЛИ ДЛЯ РАЗДЕЛА ДЕТСКИХ САДОВ */
+        /* Стили таблицы детских садов */
+        .table-container {
+            overflow-x: auto;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            border: 1px solid #e8e8e8;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th {
+            background: #2c5530;
+            color: white;
+            padding: 18px 20px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            position: sticky;
+            top: 0;
+        }
+
+        td {
+            padding: 20px;
+            text-align: center;
+            border-right: 1px solid #f0f0f0;
+            border-bottom: 1px solid #f0f0f0;
+            transition: background-color 0.2s ease;
+        }
+
+        td:last-child {
+            border-right: none;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:nth-child(even) {
+            background: #fafafa;
+        }
+
+        tr:hover td {
+            background: #f0f7f1;
+        }
+
+        /* Стили для названия детского сада */
+        .kg-name {
+            font-weight: 600;
+            color: #2c5530;
+            text-align: left;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .kg-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: white;
+            flex-shrink: 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-top: 2px;
+        }
+
+        .kg-info {
+            flex: 1;
+        }
+
+        .kg-name-text {
+            font-weight: 600;
+            color: #2c5530;
+            font-size: 14px;
+        }
+
+        .closed-note {
+            font-size: 12px;
+            color: #e74c3c;
+            margin-top: 6px;
+        }
+
+        /* Круговые индикаторы */
+        .percentage-circle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 8px;
+            font-weight: 600;
+            font-size: 14px;
+            position: relative;
+            border: 2px solid;
+        }
+
+        /* Статистика под кругами */
+        .kg-stats {
+            font-size: 12px;
+            color: #666;
+            line-height: 1.4;
+        }
+
+        .kg-stats-child {
+            color: #2c5530;
+        }
+
+        /* Легенда для детских садов */
+        .kg-legend {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .legend-color {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+        }
+
+        /* Примечание для детских садов */
+        .capacity-note {
+            font-size: 13px;
+            color: #666;
+            margin: 25px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 6px;
+            line-height: 1.5;
+        }
+
+        .source-link {
+            color: #2c5530;
+            text-decoration: none;
+        }
+
+        .source-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Сводная статистика для детских садов */
+        .summary-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+
         /* АДАПТИВНОСТЬ */
         @media (max-width: 768px) {
             .nav-links {
@@ -489,6 +659,32 @@
                 padding: 8px 10px;
                 font-size: 13px;
             }
+            
+            th, td {
+                padding: 15px 12px !important;
+                font-size: 13px !important;
+            }
+            
+            .percentage-circle {
+                width: 40px;
+                height: 40px;
+                font-size: 12px;
+            }
+            
+            .kg-legend {
+                gap: 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .table-container {
+                margin: 10px -15px;
+                width: calc(100% + 30px);
+            }
+            
+            table {
+                min-width: 600px;
+            }
         }
     </style>
 </head>
@@ -500,6 +696,7 @@
             <ul class="nav-links">
                 <li><a href="#total" class="nav-link">ОБЩАЯ СТАТИСТИКА</a></li>
                 <li><a href="#age" class="nav-link">ВОЗРАСТНЫЕ ГРУППЫ</a></li>
+                <li><a href="#kindergartens" class="nav-link">ДЕТСКИЕ САДЫ</a></li>
             </ul>
         </div>
     </nav>
@@ -507,7 +704,7 @@
     <!-- ПЕРВЫЙ ЭКРАН -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1><strong>Дети наукограда</strong><br><span class="years">2023-2028</span></h1>
+            <h1><strong>Дети Черноголовки</strong><br><span class="years">2023-2028</span></h1>
             
             <div class="hero-title-block">
                 <p class="hero-subtitle">Неофициальная визуализация данных<br>из постановления <a href="https://docs.yandex.ru/docs/view?url=ya-disk-public%3A%2F%2FqqOmze%2FcR3S6yuulpizA8%2Bo3GaRDWmDUMPGQWASMerZ6pU%2BZEv0wgS2l6p6F7Yutq%2FJ6bpmRyOJonT3VoXnDag%3D%3D&name=1121%20%D0%BE%D1%82%2013.10.2025.pdf&nosw=1" target="_blank" style="color: #2c5530;">№ 1121 от 13.10.2025</a></p>
@@ -652,6 +849,75 @@
                         </tr>
                     </tbody>
                 </table>
+            </div>
+        </section>
+
+        <!-- РАЗДЕЛ: Загрузка детских садов -->
+        <section id="kindergartens" class="chart-section">
+            <h2 class="chart-title">Загрузка детских садов</h2>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="text-align: left; padding-left: 30px;">Детский сад</th>
+                            <th>Вместимость</th>
+                            <th>2023-2024</th>
+                            <th>2024-2025</th>
+                            <th>2025-2026</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                        <!-- Заполнится скриптом -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="kg-legend">
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #e8f5e9; border: 2px solid #2e7d32;"></div>
+                    <span>Высокая наполняемость (≥80%)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #fff8e1; border: 2px solid #f57c00;"></div>
+                    <span>Средняя наполняемость (50-79%)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #ffebee; border: 2px solid #c62828;"></div>
+                    <span>Низкая наполняемость (<50%)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #f5f5f5; border: 2px solid #757575;"></div>
+                    <span>Закрыт / Нет данных</span>
+                </div>
+            </div>
+            
+            <div class="capacity-note">
+                Данные о вместимости «Солнышка», «Радуги» и «Росинки» – официальные, для «Лады» и «Сказки» – ориентировочные. Источник данных для таблицы: <a href="https://chrg-school.edumsko.ru/activity/preschool_groups?year=45588&address_id=%2Factivity%2Fpreschool_groups" 
+                target="_blank" class="source-link">Черноголовская СОШ</a>
+            </div>
+            
+            <div class="summary-stats">
+                <div class="stat-card">
+                    <div class="stat-value">847 → 659</div>
+                    <div class="stat-label">Всего детей</div>
+                    <div class="period-note">2023-2026</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">43 → 30</div>
+                    <div class="stat-label">Всего групп</div>
+                    <div class="period-note">2023-2026</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">5 → 4</div>
+                    <div class="stat-label">Количество садов</div>
+                    <div class="period-note">2023-2026</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value negative-change">↓ -22%</div>
+                    <div class="stat-label">Снижение наполняемости</div>
+                    <div class="period-note">2023-2026</div>
+                </div>
             </div>
         </section>
 
@@ -1129,6 +1395,153 @@
                 behavior: 'smooth'
             });
         });
+
+        // ДАННЫЕ ДЛЯ РАЗДЕЛА ДЕТСКИХ САДОВ
+        const kindergartenData = [
+            { 
+                name: "Росинка", 
+                capacity: 320,
+                icon: "💧",
+                iconColor: "#2c5530",
+                years: {
+                    "2023": { children: 270, groups: 13, occupancy: 84 },
+                    "2024": { children: 236, groups: 11, occupancy: 74 },
+                    "2025": { children: 197, groups: 10, occupancy: 62 }
+                }
+            },
+            { 
+                name: "Лада", 
+                capacity: 320,
+                icon: "👸",
+                iconColor: "#4a7c59",
+                years: {
+                    "2023": { children: 228, groups: 10, occupancy: 71 },
+                    "2024": { children: 181, groups: 9, occupancy: 57 },
+                    "2025": { children: 160, groups: 8, occupancy: 50 }
+                }
+            },
+            { 
+                name: "Сказка", 
+                capacity: 320,
+                icon: "📚",
+                iconColor: "#6b9578",
+                years: {
+                    "2023": { children: 118, groups: 7, occupancy: 37 },
+                    "2024": { children: 67, groups: 9, occupancy: 21 },
+                    "2025": { children: 145, groups: 7, occupancy: 45 }
+                }
+            },
+            { 
+                name: "Солнышко", 
+                capacity: 140,
+                icon: "☀️",
+                iconColor: "#ff9e4a",
+                years: {
+                    "2023": { children: 147, groups: 6, occupancy: 105 },
+                    "2024": { children: 133, groups: 5, occupancy: 95 },
+                    "2025": { children: 137, groups: 5, occupancy: 98 }
+                }
+            },
+            { 
+                name: "Радуга", 
+                capacity: 325,
+                icon: "🌈",
+                iconColor: "#2c5530",
+                closed: true,
+                years: {
+                    "2023": { children: 124, groups: 7, occupancy: 38 },
+                    "2024": { children: 0, groups: 0, occupancy: 0 },
+                    "2025": { children: 0, groups: 0, occupancy: 0 }
+                }
+            }
+        ];
+
+        const kgYears = ['2023', '2024', '2025'];
+
+        // Функция определения стилей для кругового индикатора
+        function getCircleStyles(percentage) {
+            if (percentage === 0) {
+                return {
+                    background: '#f5f5f5',
+                    borderColor: '#757575',
+                    color: '#757575'
+                };
+            }
+            if (percentage >= 80) {
+                return {
+                    background: '#e8f5e9',
+                    borderColor: '#2e7d32',
+                    color: '#2e7d32'
+                };
+            }
+            if (percentage >= 50) {
+                return {
+                    background: '#fff8e1',
+                    borderColor: '#f57c00',
+                    color: '#f57c00'
+                };
+            }
+            return {
+                background: '#ffebee',
+                borderColor: '#c62828',
+                color: '#c62828'
+            };
+        }
+
+        // Рендер таблицы детских садов
+        function renderKindergartenTable() {
+            const tbody = document.getElementById('tableBody');
+            tbody.innerHTML = '';
+            
+            kindergartenData.forEach(kg => {
+                const row = document.createElement('tr');
+                if (kg.closed) {
+                    row.style.opacity = '0.7';
+                }
+                
+                row.innerHTML = `
+                    <td style="text-align: left; padding-left: 30px;">
+                        <div class="kg-name">
+                            <div class="kg-icon" style="background: ${kg.iconColor};">${kg.icon}</div>
+                            <div class="kg-info">
+                                <div class="kg-name-text">${kg.name}</div>
+                                ${kg.closed ? 
+                                    '<div class="closed-note">закрыт в июле 2024</div>' : 
+                                    ''}
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div style="font-weight: 600; color: #2c5530; font-size: 16px;">${kg.capacity}</div>
+                        <div style="font-size: 12px; color: #666;">мест</div>
+                    </td>
+                    ${kgYears.map(year => {
+                        const data = kg.years[year];
+                        const styles = getCircleStyles(data.occupancy);
+                        
+                        return `
+                            <td>
+                                <div class="percentage-circle" 
+                                     style="background: ${styles.background}; 
+                                            border-color: ${styles.borderColor}; 
+                                            color: ${styles.color};">
+                                    ${data.occupancy}%
+                                </div>
+                                <div class="kg-stats">
+                                    <span class="kg-stats-child">${data.children} ч-к</span><br>
+                                    ${data.groups} групп
+                                </div>
+                            </td>
+                        `;
+                    }).join('')}
+                `;
+                
+                tbody.appendChild(row);
+            });
+        }
+
+        // Инициализация таблицы детских садов
+        document.addEventListener('DOMContentLoaded', renderKindergartenTable);
     </script>
 </body>
 </html>
