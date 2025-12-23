@@ -4,8 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Дети Черноголовки: демография 2023-2028</title>
+    
+    <!-- Мета-теги для SEO -->
+    <meta name="description" content="Визуализация демографических данных детей Черноголовки на 2023-2028 годы. Анализ численности, возрастных групп и загрузки детских садов.">
+    <meta name="keywords" content="Черноголовка, демография, дети, детские сады, статистика, 2023, 2024, 2025, 2026, 2027, 2028">
+    <meta name="author" content="Неофициальная визуализация данных">
+    
+    <!-- Open Graph для соцсетей -->
+    <meta property="og:title" content="Дети Черноголовки: демография 2023-2028">
+    <meta property="og:description" content="Визуализация демографических данных детей Черноголовки">
+    <meta property="og:type" content="website">
+    
+    <!-- Фавикон -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👶</text></svg>">
+    
+    <!-- Скрипты и стили -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Счетчик Яндекс.Метрики -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=105524102', 'ym');
+
+        ym(105524102, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/105524102" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    
     <style>
         * {
             margin: 0;
@@ -435,68 +464,105 @@
             margin-top: 8px;
         }
 
-        /* СТИЛИ ДЛЯ РАЗДЕЛА ДЕТСКИХ САДОВ */
-        /* Стили таблицы детских садов */
-        .table-container {
-            overflow-x: auto;
+        /* СТИЛИ ДЛЯ ТАБЛИЦЫ ДЕТСКИХ САДОВ */
+        .kindergartens-mobile-wrapper {
+            position: relative;
             margin: 20px 0;
-            border-radius: 8px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 14px;
-            border: 1px solid #e8e8e8;
-            border-radius: 8px;
             overflow: hidden;
         }
 
-        th {
+        .kindergartens-scroll-container {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            scrollbar-color: #2c5530 #f0f0f0;
+            border-radius: 8px;
+            border: 1px solid #e8e8e8;
+        }
+
+        .kindergartens-scroll-container::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .kindergartens-scroll-container::-webkit-scrollbar-track {
+            background: #f0f0f0;
+            border-radius: 3px;
+        }
+
+        .kindergartens-scroll-container::-webkit-scrollbar-thumb {
+            background: #2c5530;
+            border-radius: 3px;
+        }
+
+        .kindergartens-table {
+            width: 100%;
+            min-width: 650px;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        .kindergartens-table th {
             background: #2c5530;
             color: white;
-            padding: 18px 20px;
+            padding: 16px 12px;
             text-align: center;
             font-weight: 600;
-            font-size: 13px;
+            font-size: 12px;
             letter-spacing: 0.5px;
             text-transform: uppercase;
             position: sticky;
             top: 0;
+            white-space: nowrap;
         }
 
-        td {
-            padding: 20px;
+        .kindergartens-table td {
+            padding: 16px 12px;
             text-align: center;
             border-right: 1px solid #f0f0f0;
             border-bottom: 1px solid #f0f0f0;
             transition: background-color 0.2s ease;
+            white-space: nowrap;
         }
 
-        td:last-child {
+        .kindergartens-table td:first-child {
+            position: sticky;
+            left: 0;
+            background: white;
+            z-index: 1;
+            min-width: 180px;
+            text-align: left;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+        }
+
+        .kindergartens-table td:last-child {
             border-right: none;
         }
 
-        tr:last-child td {
+        .kindergartens-table tr:last-child td {
             border-bottom: none;
         }
 
-        tr:nth-child(even) {
+        .kindergartens-table tr:nth-child(even) {
             background: #fafafa;
         }
 
-        tr:hover td {
+        .kindergartens-table tr:hover td {
             background: #f0f7f1;
         }
 
-        /* Стили для названия детского сада */
+        .kindergartens-table tr:hover td:first-child {
+            background: #f0f7f1;
+        }
+
+        /* СТИЛИ ДЛЯ НАЗВАНИЯ ДЕТСКОГО САДА */
         .kg-name {
             font-weight: 600;
             color: #2c5530;
             text-align: left;
             display: flex;
-            align-items: flex-start;
-            gap: 12px;
+            align-items: center;
+            gap: 10px;
+            min-height: 40px;
         }
 
         .kg-icon {
@@ -506,84 +572,90 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 16px;
+            font-size: 14px;
             color: white;
             flex-shrink: 0;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            margin-top: 2px;
         }
 
         .kg-info {
             flex: 1;
+            min-width: 0;
         }
 
         .kg-name-text {
             font-weight: 600;
             color: #2c5530;
             font-size: 14px;
+            white-space: normal;
+            word-break: break-word;
         }
 
         .closed-note {
-            font-size: 12px;
+            font-size: 11px;
             color: #e74c3c;
-            margin-top: 6px;
+            margin-top: 4px;
+            white-space: normal;
         }
 
-        /* Круговые индикаторы */
+        /* КРУГОВЫЕ ИНДИКАТОРЫ */
         .percentage-circle {
-            width: 50px;
-            height: 50px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 8px;
+            margin: 0 auto 6px;
             font-weight: 600;
-            font-size: 14px;
+            font-size: 12px;
             position: relative;
             border: 2px solid;
         }
 
-        /* Статистика под кругами */
+        /* СТАТИСТИКА ПОД КРУГАМИ */
         .kg-stats {
-            font-size: 12px;
+            font-size: 11px;
             color: #666;
-            line-height: 1.4;
+            line-height: 1.3;
         }
 
         .kg-stats-child {
             color: #2c5530;
+            font-weight: 600;
         }
 
-        /* Легенда для детских садов */
+        /* ЛЕГЕНДА ДЛЯ ДЕТСКИХ САДОВ */
         .kg-legend {
             display: flex;
             justify-content: center;
-            gap: 25px;
-            margin-top: 30px;
+            gap: 20px;
+            margin-top: 25px;
             flex-wrap: wrap;
         }
 
         .legend-item {
             display: flex;
             align-items: center;
-            gap: 8px;
-            font-size: 12px;
+            gap: 6px;
+            font-size: 11px;
             color: #666;
+            white-space: nowrap;
         }
 
         .legend-color {
-            width: 16px;
-            height: 16px;
+            width: 14px;
+            height: 14px;
             border-radius: 50%;
+            flex-shrink: 0;
         }
 
-        /* Примечание для детских садов */
+        /* ПРИМЕЧАНИЕ ДЛЯ ДЕТСКИХ САДОВ */
         .capacity-note {
-            font-size: 13px;
+            font-size: 12px;
             color: #666;
-            margin: 25px 0;
-            padding: 15px;
+            margin: 20px 0;
+            padding: 12px 15px;
             background: #f8f9fa;
             border-radius: 6px;
             line-height: 1.5;
@@ -592,18 +664,19 @@
         .source-link {
             color: #2c5530;
             text-decoration: none;
+            font-weight: 500;
         }
 
         .source-link:hover {
             text-decoration: underline;
         }
 
-        /* Сводная статистика для детских садов */
+        /* СВОДНАЯ СТАТИСТИКА ДЛЯ ДЕТСКИХ САДОВ */
         .summary-stats {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 15px;
-            margin-top: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 12px;
+            margin-top: 25px;
         }
 
         /* АДАПТИВНОСТЬ */
@@ -614,10 +687,20 @@
 
             .hero h1 {
                 font-size: 48px;
+                margin-bottom: 40px;
             }
 
             .hero-content {
                 padding: 100px 0 20px 0;
+            }
+
+            .hero-title-block {
+                margin-bottom: 40px;
+            }
+
+            .hero-subtitle {
+                font-size: 14px;
+                letter-spacing: 1px;
             }
 
             .section-header h2 {
@@ -638,7 +721,13 @@
             }
             
             .chart-section {
-                padding: 25px;
+                padding: 20px 15px;
+                margin-bottom: 40px;
+            }
+            
+            .chart-title {
+                font-size: 24px;
+                margin-bottom: 20px;
             }
             
             .arrow-circle {
@@ -660,30 +749,136 @@
                 font-size: 13px;
             }
             
-            th, td {
-                padding: 15px 12px !important;
-                font-size: 13px !important;
+            section {
+                padding: 80px 15px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 15px;
+            }
+            
+            .stat-card {
+                padding: 20px 15px;
+            }
+            
+            .stat-value {
+                font-size: 28px;
+            }
+            
+            .kg-legend {
+                gap: 12px;
+                justify-content: flex-start;
+            }
+            
+            .legend-item {
+                font-size: 10px;
+            }
+            
+            .legend-color {
+                width: 12px;
+                height: 12px;
+            }
+            
+            .capacity-note {
+                font-size: 11px;
+                padding: 10px 12px;
+            }
+            
+            .summary-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero-subtitle {
+                font-size: 12px;
+                letter-spacing: 0.5px;
+            }
+            
+            .chart-container {
+                height: 250px;
+            }
+            
+            .chart-container-large {
+                height: 350px;
+            }
+            
+            .chart-title {
+                font-size: 20px;
+            }
+            
+            .chart-explanation {
+                padding: 15px;
+                font-size: 13px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stat-value {
+                font-size: 24px;
+            }
+            
+            .stat-label {
+                font-size: 12px;
             }
             
             .percentage-circle {
                 width: 40px;
                 height: 40px;
+                font-size: 11px;
+            }
+            
+            .kg-stats {
+                font-size: 10px;
+            }
+            
+            .kg-name {
+                gap: 8px;
+            }
+            
+            .kg-icon {
+                width: 28px;
+                height: 28px;
                 font-size: 12px;
             }
             
-            .kg-legend {
-                gap: 15px;
+            .kg-name-text {
+                font-size: 12px;
+            }
+            
+            .closed-note {
+                font-size: 10px;
+            }
+            
+            .kindergartens-table th,
+            .kindergartens-table td {
+                padding: 12px 8px;
+                font-size: 11px !important;
+            }
+            
+            .kindergartens-table td:first-child {
+                min-width: 160px;
             }
         }
         
-        @media (max-width: 480px) {
-            .table-container {
-                margin: 10px -15px;
-                width: calc(100% + 30px);
+        @media (max-width: 320px) {
+            .hero h1 {
+                font-size: 32px;
             }
             
-            table {
-                min-width: 600px;
+            .chart-container {
+                height: 200px;
+            }
+            
+            .kindergartens-table td:first-child {
+                min-width: 140px;
             }
         }
     </style>
@@ -856,21 +1051,24 @@
         <section id="kindergartens" class="chart-section">
             <h2 class="chart-title">Загрузка детских садов</h2>
             
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th style="text-align: left; padding-left: 30px;">Детский сад</th>
-                            <th>Вместимость</th>
-                            <th>2023-2024</th>
-                            <th>2024-2025</th>
-                            <th>2025-2026</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tableBody">
-                        <!-- Заполнится скриптом -->
-                    </tbody>
-                </table>
+            <!-- Обертка для таблицы с горизонтальным скроллом -->
+            <div class="kindergartens-mobile-wrapper">
+                <div class="kindergartens-scroll-container">
+                    <table class="kindergartens-table">
+                        <thead>
+                            <tr>
+                                <th style="text-align: left; padding-left: 20px;">Детский сад</th>
+                                <th>Вместимость</th>
+                                <th>2023-2024</th>
+                                <th>2024-2025</th>
+                                <th>2025-2026</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                            <!-- Заполнится скриптом -->
+                        </tbody>
+                    </table>
+                </div>
             </div>
             
             <div class="kg-legend">
@@ -924,7 +1122,7 @@
     </div>
 
     <script>
-        // Основной цвет
+        // Основной цвет для графиков
         const primaryColor = '#2c5530';
         const primaryLight = 'rgba(44, 85, 48, 0.1)';
         
@@ -1326,6 +1524,7 @@
             }
         });
 
+        // Эффекты при наведении на график с детальным распределением
         function addHoverEffects() {
             const canvas = document.getElementById('detailedAgesChart');
             const extremePoints = [
@@ -1500,7 +1699,7 @@
                 }
                 
                 row.innerHTML = `
-                    <td style="text-align: left; padding-left: 30px;">
+                    <td style="text-align: left; padding-left: 20px;">
                         <div class="kg-name">
                             <div class="kg-icon" style="background: ${kg.iconColor};">${kg.icon}</div>
                             <div class="kg-info">
@@ -1512,8 +1711,8 @@
                         </div>
                     </td>
                     <td>
-                        <div style="font-weight: 600; color: #2c5530; font-size: 16px;">${kg.capacity}</div>
-                        <div style="font-size: 12px; color: #666;">мест</div>
+                        <div style="font-weight: 600; color: #2c5530; font-size: 15px;">${kg.capacity}</div>
+                        <div style="font-size: 11px; color: #666;">мест</div>
                     </td>
                     ${kgYears.map(year => {
                         const data = kg.years[year];
