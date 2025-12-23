@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Дети Черноголовки: демография 2023-2028</title>
+    <title>Дети Черноголовки: демография 2023-2028 - Снижение наполняемости детсадов на 22%</title>
     
     <!-- SEO: Мета-теги для поисковых систем -->
-    <meta name="description" content="Визуализация демографических данных детей Черноголовки на 2023-2028 годы. Анализ численности, возрастных групп и загрузки детских садов.">
+    <meta name="description" content="Анализ наполняемости детских садов Черноголовки. За 3 года количество детей снизилось с 847 до 659 (на 22%). Данные по садам Росинка, Лада, Сказка, Солнышко, Радуга.">
     <meta name="keywords" content="Черноголовка, демография, дети, детские сады, статистика, 2023, 2024, 2025, 2026, 2027, 2028">
     <meta name="author" content="Неофициальная визуализация данных">
     
@@ -607,6 +607,83 @@
             flex-shrink: 0;
         }
 
+        /* КНОПКА "ПОДРОБНЕЕ" */
+        .details-toggle {
+            display: none;
+        }
+
+        .details-toggle-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            font-size: 11px;
+            color: #666;
+            margin-top: 12px;
+            padding: 8px;
+            background: #f8f9fa;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            text-align: center;
+            width: 100%;
+        }
+
+        .details-toggle-label:hover {
+            background: #f0f0f0;
+        }
+
+        .toggle-icon {
+            font-size: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .details-toggle:checked + .details-toggle-label .toggle-icon {
+            transform: rotate(180deg);
+        }
+
+        /* ДЕТАЛЬНАЯ СТАТИСТИКА */
+        .details-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            margin-top: 0;
+        }
+
+        .details-toggle:checked ~ .details-content {
+            max-height: 200px;
+            margin-top: 10px;
+        }
+
+        .details-table {
+            width: 100%;
+            font-size: 11px;
+            border-collapse: collapse;
+            background: #f8f9fa;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .details-table th {
+            text-align: left;
+            padding: 10px 12px;
+            background: #f0f0f0;
+            color: #666;
+            font-weight: 500;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .details-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #e0e0e0;
+            color: #333;
+            font-weight: normal;
+        }
+
+        .details-table tr:last-child td {
+            border-bottom: none;
+        }
+
         /* ЛЕГЕНДА */
         .legend {
             display: flex;
@@ -648,6 +725,7 @@
             border-radius: 8px;
             text-align: center;
             box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+            border-left: 4px solid #2c5530;
         }
 
         .summary-value {
@@ -692,6 +770,63 @@
 
         .source-link:hover {
             text-decoration: underline;
+        }
+
+        /* АДАПТИВНЫЙ БЛОК ВОЗРАСТОВ */
+        .mobile-ages-grid {
+            display: none;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .mobile-age-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        }
+
+        .mobile-age-year {
+            padding: 12px 15px;
+            font-weight: 600;
+            font-size: 15px;
+            background: #f8f9fa;
+            border-left: 4px solid;
+        }
+
+        .mobile-age-details {
+            padding: 12px 15px;
+        }
+
+        .mobile-age-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .mobile-age-item:last-child {
+            border-bottom: none;
+        }
+
+        .mobile-age-label {
+            font-size: 13px;
+            color: #666;
+            flex: 1;
+        }
+
+        .mobile-age-value {
+            font-size: 14px;
+            font-weight: 600;
+            color: #2c5530;
+            min-width: 60px;
+            text-align: right;
+        }
+
+        .desktop-only {
+            display: table;
         }
 
         /* АДАПТИВНОСТЬ: ПЛАНШЕТЫ И МОБИЛЬНЫЕ */
@@ -827,6 +962,29 @@
                 font-size: 10px;
                 width: 28px;
             }
+            
+            .details-toggle-label {
+                font-size: 10px;
+                padding: 6px;
+            }
+            
+            .details-table {
+                font-size: 10px;
+            }
+            
+            .details-table th,
+            .details-table td {
+                padding: 8px 10px;
+            }
+            
+            /* АДАПТИВНОСТЬ БЛОКА ВОЗРАСТОВ */
+            .desktop-only {
+                display: none;
+            }
+            
+            .mobile-ages-grid {
+                display: flex;
+            }
         }
         
         /* АДАПТИВНОСТЬ: МАЛЕНЬКИЕ СМАРТФОНЫ */
@@ -886,6 +1044,25 @@
             .data-source-note {
                 font-size: 11px;
                 padding: 12px;
+            }
+            
+            /* АДАПТИВНОСТЬ БЛОКА ВОЗРАСТОВ */
+            .mobile-age-year {
+                padding: 10px 12px;
+                font-size: 14px;
+            }
+            
+            .mobile-age-details {
+                padding: 10px 12px;
+            }
+            
+            .mobile-age-label {
+                font-size: 12px;
+            }
+            
+            .mobile-age-value {
+                font-size: 13px;
+                min-width: 50px;
             }
         }
         
@@ -954,6 +1131,24 @@
             
             .summary-label {
                 font-size: 8px;
+            }
+            
+            .details-toggle-label {
+                font-size: 9px;
+                padding: 5px;
+            }
+            
+            .toggle-icon {
+                font-size: 9px;
+            }
+            
+            .details-table {
+                font-size: 9px;
+            }
+            
+            .details-table th,
+            .details-table td {
+                padding: 6px 8px;
             }
         }
         
@@ -1124,7 +1319,60 @@
 
             <div class="highlight-info">
                 <h3 style="margin-bottom: 15px; color: #2c5530; font-size: 16px;">Возрастные группы, в которых больше всего и меньше всего детей</h3>
-                <table class="extreme-ages-table">
+                
+                <!-- Адаптивная версия для мобильных -->
+                <div class="mobile-ages-grid">
+                    <div class="mobile-age-card">
+                        <div class="mobile-age-year" style="color: #ff9e4a; border-left-color: #ff9e4a;">
+                            2023
+                        </div>
+                        <div class="mobile-age-details">
+                            <div class="mobile-age-item">
+                                <span class="mobile-age-label">Самый многочисленный:</span>
+                                <span class="mobile-age-value">11 лет</span>
+                            </div>
+                            <div class="mobile-age-item">
+                                <span class="mobile-age-label">Самый малочисленный:</span>
+                                <span class="mobile-age-value">0 лет</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mobile-age-card">
+                        <div class="mobile-age-year" style="color: #6b9578; border-left-color: #6b9578;">
+                            2025
+                        </div>
+                        <div class="mobile-age-details">
+                            <div class="mobile-age-item">
+                                <span class="mobile-age-label">Самый многочисленный:</span>
+                                <span class="mobile-age-value">12 лет</span>
+                            </div>
+                            <div class="mobile-age-item">
+                                <span class="mobile-age-label">Самый малочисленный:</span>
+                                <span class="mobile-age-value">2 года</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mobile-age-card">
+                        <div class="mobile-age-year" style="color: #999999; border-left-color: #999999;">
+                            2028
+                        </div>
+                        <div class="mobile-age-details">
+                            <div class="mobile-age-item">
+                                <span class="mobile-age-label">Самый многочисленный:</span>
+                                <span class="mobile-age-value">16 лет</span>
+                            </div>
+                            <div class="mobile-age-item">
+                                <span class="mobile-age-label">Самый малочисленный:</span>
+                                <span class="mobile-age-value">5 лет</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Десктопная версия (скрыта на мобильных) -->
+                <table class="extreme-ages-table desktop-only">
                     <thead>
                         <tr>
                             <th>Год</th>
@@ -1200,6 +1448,38 @@
                             </div>
                         </div>
                     </div>
+                    
+                    <!-- Кнопка "Подробнее" -->
+                    <input type="checkbox" id="kg1" class="details-toggle">
+                    <label for="kg1" class="details-toggle-label">
+                        Подробнее <span class="toggle-icon">▼</span>
+                    </label>
+                    
+                    <!-- Детальная статистика -->
+                    <div class="details-content">
+                        <table class="details-table">
+                            <tr>
+                                <th>Учебный год</th>
+                                <th>Количество детей</th>
+                                <th>Количество групп</th>
+                            </tr>
+                            <tr>
+                                <td>2023-2024</td>
+                                <td>250</td>
+                                <td>13</td>
+                            </tr>
+                            <tr>
+                                <td>2024-2025</td>
+                                <td>236</td>
+                                <td>11</td>
+                            </tr>
+                            <tr>
+                                <td>2025-2026</td>
+                                <td>197</td>
+                                <td>10</td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
                 
                 <!-- Детский сад: Лада -->
@@ -1242,6 +1522,36 @@
                                 <div class="progress-value">50%</div>
                             </div>
                         </div>
+                    </div>
+                    
+                    <input type="checkbox" id="kg2" class="details-toggle">
+                    <label for="kg2" class="details-toggle-label">
+                        Подробнее <span class="toggle-icon">▼</span>
+                    </label>
+                    
+                    <div class="details-content">
+                        <table class="details-table">
+                            <tr>
+                                <th>Учебный год</th>
+                                <th>Количество детей</th>
+                                <th>Количество групп</th>
+                            </tr>
+                            <tr>
+                                <td>2023-2024</td>
+                                <td>208</td>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <td>2024-2025</td>
+                                <td>175</td>
+                                <td>9</td>
+                            </tr>
+                            <tr>
+                                <td>2025-2026</td>
+                                <td>160</td>
+                                <td>8</td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
                 
@@ -1286,6 +1596,36 @@
                             </div>
                         </div>
                     </div>
+                    
+                    <input type="checkbox" id="kg3" class="details-toggle">
+                    <label for="kg3" class="details-toggle-label">
+                        Подробнее <span class="toggle-icon">▼</span>
+                    </label>
+                    
+                    <div class="details-content">
+                        <table class="details-table">
+                            <tr>
+                                <th>Учебный год</th>
+                                <th>Количество детей</th>
+                                <th>Количество групп</th>
+                            </tr>
+                            <tr>
+                                <td>2023-2024</td>
+                                <td>118</td>
+                                <td>7</td>
+                            </tr>
+                            <tr>
+                                <td>2024-2025</td>
+                                <td>67</td>
+                                <td>4</td>
+                            </tr>
+                            <tr>
+                                <td>2025-2026</td>
+                                <td>165</td>
+                                <td>7</td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
                 
                 <!-- Детский сад: Солнышко -->
@@ -1328,6 +1668,36 @@
                                 <div class="progress-value">98%</div>
                             </div>
                         </div>
+                    </div>
+                    
+                    <input type="checkbox" id="kg4" class="details-toggle">
+                    <label for="kg4" class="details-toggle-label">
+                        Подробнее <span class="toggle-icon">▼</span>
+                    </label>
+                    
+                    <div class="details-content">
+                        <table class="details-table">
+                            <tr>
+                                <th>Учебный год</th>
+                                <th>Количество детей</th>
+                                <th>Количество групп</th>
+                            </tr>
+                            <tr>
+                                <td>2023-2024</td>
+                                <td>147</td>
+                                <td>6</td>
+                            </tr>
+                            <tr>
+                                <td>2024-2025</td>
+                                <td>133</td>
+                                <td>5</td>
+                            </tr>
+                            <tr>
+                                <td>2025-2026</td>
+                                <td>137</td>
+                                <td>5</td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
                 
@@ -1373,6 +1743,36 @@
                             </div>
                         </div>
                     </div>
+                    
+                    <input type="checkbox" id="kg5" class="details-toggle">
+                    <label for="kg5" class="details-toggle-label">
+                        Подробнее <span class="toggle-icon">▼</span>
+                    </label>
+                    
+                    <div class="details-content">
+                        <table class="details-table">
+                            <tr>
+                                <th>Учебный год</th>
+                                <th>Количество детей</th>
+                                <th>Количество групп</th>
+                            </tr>
+                            <tr>
+                                <td>2023-2024</td>
+                                <td>124</td>
+                                <td>7</td>
+                            </tr>
+                            <tr>
+                                <td>2024-2025</td>
+                                <td>0</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>2025-2026</td>
+                                <td>0</td>
+                                <td>0</td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
             </div>
             
@@ -1387,7 +1787,7 @@
                     <span>Средняя (50-79%)</span>
                 </div>
                 <div class="legend-item">
-                    <div class="legend-color" style="background: #999999;"></div>
+                    <div class="legend-color" style="background: #e57373;"></div>
                     <span>Низкая (<50%)</span>
                 </div>
             </div>
@@ -1402,19 +1802,19 @@
             <!-- Сводная статистика -->
             <div class="summary-cards">
                 <!-- Блок 1: Всего детей -->
-                <div class="summary-card" style="border-left: 4px solid #2c5530;">
+                <div class="summary-card">
                     <div class="summary-value">847 → 659</div>
                     <div class="summary-label">Всего детей</div>
                     <div class="summary-period">2023-2026</div>
                 </div>
                 <!-- Блок 2: Всего групп -->
-                <div class="summary-card" style="border-left: 4px solid #4a7c59;">
+                <div class="summary-card">
                     <div class="summary-value">43 → 30</div>
                     <div class="summary-label">Всего групп</div>
                     <div class="summary-period">2023-2026</div>
                 </div>
                 <!-- Блок 3: Количество садов -->
-                <div class="summary-card" style="border-left: 4px solid #6b9578;">
+                <div class="summary-card">
                     <div class="summary-value">5 → 4</div>
                     <div class="summary-label">Количество садов</div>
                     <div class="summary-period">2023-2026</div>
@@ -1902,10 +2302,10 @@
         // === ЗАГРУЗКА ДЕТСКИХ САДОВ: ИНИЦИАЛИЗАЦИЯ ===
         // Функция для определения цвета по проценту загрузки
         function getColorForPercentage(percent) {
-            if (percent === 0) return '#999999'; // 0% - серый
+            if (percent === 0) return '#e57373'; // 0% - приглушенный красный
             if (percent >= 80) return '#6b9578'; // Высокая - приглушенный зеленый
             if (percent >= 50) return '#ff9e4a'; // Средняя - приглушенный оранжевый
-            return '#999999'; // Низкая - серый
+            return '#e57373'; // Низкая - приглушенный красный
         }
 
         // Применяем цвета ко всем прогресс-барам
@@ -1962,9 +2362,6 @@
                 }
             });
             
-            // SEO: Обновляем мета-информацию
-            updateKindergartenMetaInfo(totals2023, totals2026);
-            
             // Обновляем сводную статистику
             const totalChildrenElement = document.querySelector('.summary-value:first-child');
             const totalGroupsElement = document.querySelectorAll('.summary-value')[1];
@@ -1975,25 +2372,6 @@
             
             if (totalGroupsElement) {
                 totalGroupsElement.textContent = `${groups2023} → ${groups2026}`;
-            }
-        }
-
-        // SEO: Обновление мета-информации
-        function updateKindergartenMetaInfo(total2023, total2026) {
-            const reduction = Math.round((1 - total2026 / total2023) * 100);
-            const pageTitle = document.querySelector('title');
-            const metaDescription = document.querySelector('meta[name="description"]');
-            
-            // Обновляем title для лучшего SEO
-            if (pageTitle) {
-                pageTitle.textContent = `Дети Черноголовки: демография 2023-2028 - Снижение наполняемости детсадов на ${reduction}%`;
-            }
-            
-            // Обновляем meta description для SEO
-            if (metaDescription) {
-                metaDescription.setAttribute('content', 
-                    `Анализ наполняемости детских садов Черноголовки. За 3 года количество детей снизилось с ${total2023} до ${total2026} (на ${reduction}%). Данные по садам Росинка, Лада, Сказка, Солнышко, Радуга.`
-                );
             }
         }
 
