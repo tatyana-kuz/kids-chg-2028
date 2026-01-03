@@ -37,7 +37,14 @@
             k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
         })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=105524102', 'ym');
 
-        ym(105524102, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+        ym(105524102, 'init', {
+        ssr:true,
+        webvisor:true,
+        clickmap:true,
+        accurateTrackBounce:true,
+        trackLinks:true,
+        trackHash:true
+        });
     </script>
     <noscript><div><img src="https://mc.yandex.ru/watch/105524102" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 
@@ -3537,6 +3544,16 @@
             }
         }
 
+        // Отслеживание бургер-меню
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            if (mobileMenuToggle) {
+                mobileMenuToggle.addEventListener('click', function() {
+                    ym(105524102, 'reachGoal', 'mobile_menu_open');
+                });
+            }
+        });
+        
         // Скрипт для работы аккордеона "Вопросы и ответы"
         function setupFAQAccordion() {
             const faqItems = document.querySelectorAll('.faq-item');
