@@ -3431,6 +3431,21 @@
         // Запуск эффектов наведения с задержкой
         setTimeout(addHoverEffects, 1000);
 
+        // Виртуальные PAGEVIEWS для Я.МЕТРИКИ
+        let lastUrl = location.href;
+        new MutationObserver(() => {
+            const url = location.href;
+            if (url !== lastUrl) {
+                lastUrl = url;
+                const anchor = url.split('#')[1] || 'home';
+                
+                // Отправляем виртуальный просмотр страницы
+                ym(105524102, 'hit', '/#' + anchor);
+                
+                console.log('Метрика: Виртуальный pageview -', anchor);
+            }
+        }).observe(document, {subtree: true, childList: true});
+
         // Плавная прокрутка по якорным ссылкам
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
