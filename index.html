@@ -2052,14 +2052,14 @@
     <!-- Десктопная навигация -->
     <nav id="navbar">
         <div class="nav-container">
-            <a href="#home" class="logo">ЧЕРНОГОЛОВКА</a>
+            <a href="#home" class="logo" onclick="ym(105524102, 'reachGoal', 'logo_click');">ЧЕРНОГОЛОВКА</a>
             <ul class="nav-links">
-                <li><a href="#trends" class="nav-link">ТРЕНДЫ</a></li>
-                <li><a href="#total" class="nav-link">ОБЩАЯ СТАТИСТИКА</a></li>
-                <li><a href="#age" class="nav-link">ВОЗРАСТНЫЕ ГРУППЫ</a></li>
-                <li><a href="#kindergartens" class="nav-link">ДЕТСКИЕ САДЫ</a></li>
-                <li><a href="#schools" class="nav-link">ШКОЛЫ</a></li>
-                <li><a href="#faq" class="nav-link">ВОПРОСЫ</a></li>
+                <li><a href="#trends" class="nav-link" onclick="ym(105524102, 'reachGoal', 'nav_click');">ТРЕНДЫ</a></li>
+                <li><a href="#total" class="nav-link" onclick="ym(105524102, 'reachGoal', 'nav_click');">ОБЩАЯ СТАТИСТИКА</a></li>
+                <li><a href="#age" class="nav-link" onclick="ym(105524102, 'reachGoal', 'nav_click');">ВОЗРАСТНЫЕ ГРУППЫ</a></li>
+                <li><a href="#kindergartens" class="nav-link" onclick="ym(105524102, 'reachGoal', 'nav_click');">ДЕТСКИЕ САДЫ</a></li>
+                <li><a href="#schools" class="nav-link" onclick="ym(105524102, 'reachGoal', 'nav_click');">ШКОЛЫ</a></li>
+                <li><a href="#faq" class="nav-link" onclick="ym(105524102, 'reachGoal', 'nav_click');">ВОПРОСЫ</a></li>
             </ul>
         </div>
     </nav>
@@ -2067,19 +2067,19 @@
     <!-- Мобильная навигация -->
     <div class="mobile-nav">
         <div class="mobile-nav-container">
-            <a href="#home" class="mobile-logo">ЧЕРНОГОЛОВКА</a>
-            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+            <a href="#home" class="mobile-logo" onclick="ym(105524102, 'reachGoal', 'logo_click');">ЧЕРНОГОЛОВКА</a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" onclick="ym(105524102, 'reachGoal', 'mobile_menu_open');">
                 ☰
             </button>
         </div>
         <div class="mobile-menu" id="mobileMenu">
             <ul class="mobile-menu-links">
-                <li><a href="#trends" class="mobile-nav-link">ТРЕНДЫ</a></li>
-                <li><a href="#total" class="mobile-nav-link">ОБЩАЯ СТАТИСТИКА</a></li>
-                <li><a href="#age" class="mobile-nav-link">ВОЗРАСТНЫЕ ГРУППЫ</a></li>
-                <li><a href="#kindergartens" class="mobile-nav-link">ДЕТСКИЕ САДЫ</a></li>
-                <li><a href="#schools" class="mobile-nav-link">ШКОЛЫ</a></li>
-                <li><a href="#faq" class="mobile-nav-link">ВОПРОСЫ</a></li>
+                <li><a href="#trends" class="mobile-nav-link" onclick="ym(105524102, 'reachGoal', 'nav_click');">ТРЕНДЫ</a></li>
+                <li><a href="#total" class="mobile-nav-link" onclick="ym(105524102, 'reachGoal', 'nav_click');">ОБЩАЯ СТАТИСТИКА</a></li>
+                <li><a href="#age" class="mobile-nav-link" onclick="ym(105524102, 'reachGoal', 'nav_click');">ВОЗРАСТНЫЕ ГРУППЫ</a></li>
+                <li><a href="#kindergartens" class="mobile-nav-link" onclick="ym(105524102, 'reachGoal', 'nav_click');">ДЕТСКИЕ САДЫ</a></li>
+                <li><a href="#schools" class="mobile-nav-link" onclick="ym(105524102, 'reachGoal', 'nav_click');">ШКОЛЫ</a></li>
+                <li><a href="#faq" class="mobile-nav-link" onclick="ym(105524102, 'reachGoal', 'nav_click');">ВОПРОСЫ</a></li>
             </ul>
         </div>
     </div>
@@ -2099,7 +2099,7 @@
             </div>
 
             <div class="scroll-indicator">
-                <div class="arrow-circle">
+                <div class="arrow-circle" onclick="ym(105524102, 'reachGoal', 'arrow_click');">
                     <div class="arrow-inner">↓</div>
                 </div>
             </div>
@@ -3693,14 +3693,25 @@
 
         // Проверка, что цели Я.Метрики работают
         console.log('=== Яндекс.Метрика цели загружены ===');
-        console.log('1. Клик Telegram: contact_telegram_click');
-        console.log('2. Клик Email: contact_email_click');
-        console.log('3. Клик Постановление: source_decree_click');
-        console.log('4. Клик ЧСОШ: source_school_site_click');
-        console.log('5. Клик Боково: project_bokovo_click');
-        console.log('6. Детали сада: kg_details_opened');
-        console.log('7. FAQ открыт: faq_opened');
-        console.log('8. Легенда графика: chart_legend_toggle');
+        console.log('=== ВНЕШНИЕ ССЫЛКИ ===');
+        console.log('Клик Telegram: contact_telegram_click');
+        console.log('Клик Email: contact_email_click');
+        console.log('Клик Постановление: source_decree_click');
+        console.log('Клик ЧСОШ: source_school_site_click');
+        console.log('Клик Боково: project_bokovo_click');
+        
+        console.log('=== КОНТЕНТ И ВОВЛЕЧЕНИЕ ===');
+        console.log('Детали сада: kg_details_opened');
+        console.log('FAQ открыт: faq_opened');
+        console.log('Легенда графика: chart_legend_toggle');
+        
+        console.log('=== НАВИГАЦИЯ ===');
+        console.log('Бургер: mobile_menu_open');
+        console.log('Стрелка вниз: arrow_click');
+        console.log('Навигация (все пункты): nav_click');
+        console.log('Логотип: logo_click');
+        
+        console.log('Для теста: ym(105524102, "reachGoal", "НАЗВАНИЕ_ЦЕЛИ")');
     </script>
 </body>
 </html>
