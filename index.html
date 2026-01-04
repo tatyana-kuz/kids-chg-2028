@@ -3608,12 +3608,23 @@
             }
         }
 
-        // Отслеживание бургер-меню
+        // Управление мобильным меню (цель отправляется через onclick в HTML)
         document.addEventListener('DOMContentLoaded', function() {
             const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-            if (mobileMenuToggle) {
+            const mobileMenu = document.getElementById('mobileMenu');
+        
+            if (mobileMenuToggle && mobileMenu) {
                 mobileMenuToggle.addEventListener('click', function() {
-                    ym(105524102, 'reachGoal', 'mobile_menu_open');
+                    // Цель уже отправляется через onclick в HTML
+                    // Только переключаем меню
+                    mobileMenu.classList.toggle('active');
+                });
+        
+                // Закрытие меню при клике вне его
+                document.addEventListener('click', function(event) {
+                    if (!mobileMenu.contains(event.target) && !mobileMenuToggle.contains(event.target)) {
+                        mobileMenu.classList.remove('active');
+                    }
                 });
             }
         });
