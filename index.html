@@ -2093,7 +2093,7 @@
                 <p class="hero-subtitle">Неофициальная визуализация данных<br>из постановления <a href="https://docs.yandex.ru/docs/view?url=ya-disk-public%3A%2F%2FqqOmze%2FcR3S6yuulpizA8%2Bo3GaRDWmDUMPGQWASMerZ6pU%2BZEv0wgS2l6p6F7Yutq%2FJ6bpmRyOJonT3VoXnDag%3D%3D&name=1121%20%D0%BE%D1%82%2013.10.2025.pdf&nosw=1" 
                    target="_blank" 
                    style="color: #2c5530;"
-                   onclick="ym(105524102, 'reachGoal', 'source_decree_click');">
+                   onclick="event.preventDefault(); ym(105524102, 'reachGoal', 'source_decree_click'); setTimeout(() => window.open(this.href, '_blank'), 200);">
                    № 1121 от 13.10.2025
             </a></p>
             </div>
@@ -2740,7 +2740,7 @@
                 <p>Вместимость «Солнышка», «Радуги» и «Росинки» – официальные, для «Лады» и «Сказки» – ориентировочные. Источник данных для таблицы: <a href="https://chrg-school.edumsko.ru/activity/preschool_groups?year=45588&address_id=%2Factivity%2Fpreschool_groups" 
                    target="_blank" 
                    class="source-link"
-                   onclick="ym(105524102, 'reachGoal', 'source_school_site_click');">
+                   onclick="event.preventDefault(); ym(105524102, 'reachGoal', 'source_school_site_click'); setTimeout(() => window.open(this.href, '_blank'), 200);">
                    Черноголовская СОШ</a>.</p>
 
                 <p style="margin-top: 15px;">В 2026-2027 годах в Черноголовке прогнозируется избыток мест в детских садах: около 600 дошкольников при общей вместимости четырёх учреждений ~1100 мест.</p>
@@ -2915,12 +2915,12 @@
                     <ul>
                         <li>📄 <a href="https://docs.yandex.ru/docs/view?url=ya-disk-public%3A%2F%2FqqOmze%2FcR3S6yuulpizA8%2Bo3GaRDWmDUMPGQWASMerZ6pU%2BZEv0wgS2l6p6F7Yutq%2FJ6bpmRyOJonT3VoXnDag%3D%3D&name=1121%20%D0%BE%D1%82%2013.10.2025.pdf&nosw=1" 
                                target="_blank"
-                               onclick="ym(105524102, 'reachGoal', 'source_decree_click');">
+                               onclick="event.preventDefault(); ym(105524102, 'reachGoal', 'source_decree_click'); setTimeout(() => window.open(this.href, '_blank'), 200);">
                                Постановление № 1121 от 13.10.2025</a> – демографический прогноз на 2023-2028 годы;</li>
                         <li>🏫 <a href="https://chrg-school.edumsko.ru/activity/preschool_groups?year=45588&address_id=%2Factivity%2Fpreschool_groups" 
                                target="_blank" 
                                class="source-link"
-                               onclick="ym(105524102, 'reachGoal', 'source_school_site_click');">
+                               onclick="event.preventDefault(); ym(105524102, 'reachGoal', 'source_school_site_click'); setTimeout(() => window.open(this.href, '_blank'), 200);">
                                Черноголовская СОШ </a> – статистика по детским садам и группам.</li>
                     </ul>
                 </div>
@@ -2968,11 +2968,11 @@
                 <div class="faq-answer">
                     <p><a href="https://tatyana-kuz.github.io/doroga-v-bokovo/" 
                        target="_blank"
-                       onclick="ym(105524102, 'reachGoal', 'project_bokovo_click');">
+                       onclick="event.preventDefault(); ym(105524102, 'reachGoal', 'project_bokovo_click'); setTimeout(() => window.open(this.href, '_blank'), 200);">
                        Проект «Опасная дорога в Боково» </a>. Это история о многолетней борьбе жителей деревни Боково за расширение узкой и опасной дороги. 3 километра пути, где нет тротуаров, машины съезжают в кювет, а дети вынуждены идти в школу по проезжей части. Собрали всю хронику, документы и публикации в СМИ, чтобы привлечь внимание к проблеме и наконец добиться её решения.</p>
                     <p>Подробнее: <a href="https://tatyana-kuz.github.io/doroga-v-bokovo/" 
                        target="_blank"
-                       onclick="ym(105524102, 'reachGoal', 'project_bokovo_click');">
+                       onclick="event.preventDefault(); ym(105524102, 'reachGoal', 'project_bokovo_click'); setTimeout(() => window.open(this.href, '_blank'), 200);">
                        Проект «Опасная дорога в Боково»</a></p>
                 </div>
             </div>
@@ -2989,7 +2989,8 @@
                 </svg>
                 <span>popoffka88@ya.ru</span>
             </a>
-            <a href="https://t.me/popoffka" target="_blank" class="faq-contact-link" onclick="ym(105524102, 'reachGoal', 'contact_telegram_click');">
+            <a href="https://t.me/popoffka" target="_blank" class="faq-contact-link" 
+                onclick="event.preventDefault(); ym(105524102, 'reachGoal', 'contact_telegram_click'); setTimeout(() => window.open('https://t.me/popoffka', '_blank'), 200);">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="12" cy="12" r="12" fill="#2AABEE"/>
                     <path d="M17.33 7.28L15.63 16.96C15.54 17.47 15.2 17.59 14.77 17.33L11.48 14.93L9.91 16.43C9.75 16.59 9.62 16.72 9.33 16.72L9.53 13.41L15.27 8.31C15.52 8.09 15.22 7.96 14.89 8.18L7.73 12.5L4.51 11.47C4.02 11.32 4.01 10.94 4.62 10.71L16.57 6.55C16.97 6.41 17.32 6.66 17.33 7.28Z" fill="white"/>
