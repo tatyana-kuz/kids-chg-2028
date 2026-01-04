@@ -3007,6 +3007,8 @@
 
     <!-- JavaScript код -->
     <script>
+        console.log('=== НАЧАЛО СКРИПТА ===');
+        
         // Инициализация данных для графиков
         const primaryColor = '#2c5530';
         const primaryLight = 'rgba(44, 85, 48, 0.1)';
@@ -3593,41 +3595,35 @@
         function setupMobileMenu() {
             const mobileMenuToggle = document.getElementById('mobileMenuToggle');
             const mobileMenu = document.getElementById('mobileMenu');
-
-            if (mobileMenuToggle && mobileMenu) {
-                mobileMenuToggle.addEventListener('click', function() {
-                    mobileMenu.classList.toggle('active');
-                });
-
-                // Закрытие меню при клике вне его
-                document.addEventListener('click', function(event) {
-                    if (!mobileMenu.contains(event.target) && !mobileMenuToggle.contains(event.target)) {
-                        mobileMenu.classList.remove('active');
-                    }
-                });
-            }
-        }
-
-        // Управление мобильным меню (цель отправляется через onclick в HTML)
-        document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-            const mobileMenu = document.getElementById('mobileMenu');
         
             if (mobileMenuToggle && mobileMenu) {
-                mobileMenuToggle.addEventListener('click', function() {
-                    // Цель уже отправляется через onclick в HTML
-                    // Только переключаем меню
-                    mobileMenu.classList.toggle('active');
-                });
-        
-                // Закрытие меню при клике вне его
-                document.addEventListener('click', function(event) {
-                    if (!mobileMenu.contains(event.target) && !mobileMenuToggle.contains(event.target)) {
-                        mobileMenu.classList.remove('active');
-                    }
-                });
+        // Переключение меню по клику на гамбургер (после отправки цели через onclick)
+        mobileMenuToggle.addEventListener('click', function() {
+            mobileMenu.classList.toggle('active');
+            console.log('Меню переключено:', mobileMenu.classList.contains('active'));
+        });
+
+        // Закрытие меню при клике на ссылку внутри него
+        const mobileLinks = document.querySelectorAll('.mobile-menu-links a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.remove('active');
+                console.log('Меню закрыто по клику на ссылку');
+            });
+        });
+
+        // Закрытие меню при клике вне его (на пустую область)
+        document.addEventListener('click', function(event) {
+            // Проверяем, что клик был не по меню и не по кнопке
+            if (!mobileMenu.contains(event.target) && !mobileMenuToggle.contains(event.target)) {
+                mobileMenu.classList.remove('active');
+                console.log('Меню закрыто по клику вне его');
             }
         });
+            } else {
+                console.error('Не найдены элементы мобильного меню!');
+            }
+        }
         
         // Скрипт для работы аккордеона "Вопросы и ответы"
         function setupFAQAccordion() {
