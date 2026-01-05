@@ -22,14 +22,14 @@
     <meta property="og:image:type" content="image/jpeg">
 
     <!-- Фавиконка в формате SVG -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👶</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E👶%3C/text%3E%3C/svg%3E">
 
     <!-- Подключение внешних библиотек -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Яндекс.Метрика (код отслеживания) -->
-    <script type="text/javascript">
+    <script>
         (function(m,e,t,r,i,k,a){
             m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
             m[i].l=1*new Date();
@@ -46,7 +46,7 @@
         trackHash:true
         });
     </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/105524102" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <noscript><div><img src="https://mc.yandex.ru/watch/105524102" style="position:absolute; left:-9999px;" alt=""></div></noscript>
 
     <!-- Основные стили страницы -->
     <style>
@@ -1182,7 +1182,7 @@
         /* Стили для блока "Вопросы и ответы" */
         .faq-section {
             background: white;
-            margin: 30 0 0 0;
+            margin: 30px 0 0 0;
             padding: 60px 20px;
             position: relative;
         }
@@ -1595,7 +1595,7 @@
             /* Адаптация блока FAQ */
             .faq-section {
                 padding: 40px 15px;
-                margin: 15 0 0 0;
+                margin: 15px 0 0 0;
             }
 
             .faq-question {
@@ -2362,7 +2362,7 @@
                 </div>
                 <div class="legend-item">
                     <div class="legend-color" style="background: #e57373;"></div>
-                    <span>Низкая (<50%)</span>
+                    <span>Низкая (&lt;50%)</span>
                 </div>
             </div>
 
@@ -2735,7 +2735,7 @@
                 </div>
             </div>
 
-            <!-- Информационный блок о данных -->
+            <!-- Выводы -->
             <div class="data-info-block">
                 <p>Вместимость «Солнышка», «Радуги» и «Росинки» – официальные, для «Лады» и «Сказки» – ориентировочные. Источник данных для таблицы: <a href="https://chrg-school.edumsko.ru/activity/preschool_groups?year=45588&address_id=%2Factivity%2Fpreschool_groups" 
                    target="_blank" 
@@ -2999,13 +2999,13 @@
             </a>
         </div>
 
-        <!-- Финальная фраза -->
+        <!-- Футер -->
         <div class="faq-footer">
             <p>Все данные взяты из открытых источников. Автор не несёт ответственности за решения, принятые на основе этих данных. Remember, you're the captain of your ship – steer wherever you want.</p>
         </div>
     </section>
 
-    <!-- JavaScript код -->
+    <!-- JS -->
     <script>
         console.log('=== НАЧАЛО СКРИПТА ===');
         
@@ -3640,7 +3640,7 @@
             const mobileMenu = document.getElementById('mobileMenu');
         
             if (mobileMenuToggle && mobileMenu) {
-        // Переключение меню по клику на гамбургер (после отправки цели через onclick)
+        // Переключение меню по клику на бургер (после отправки цели через onclick)
         mobileMenuToggle.addEventListener('click', function() {
             mobileMenu.classList.toggle('active');
             console.log('Меню переключено:', mobileMenu.classList.contains('active'));
