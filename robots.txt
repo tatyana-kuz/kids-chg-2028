@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tatyana-kuz.github.io/kids-chg-2028/sitemap.xml
