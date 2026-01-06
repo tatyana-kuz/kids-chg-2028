@@ -64,10 +64,10 @@
 
 ### Структура файлов
 kids-chg-2028/
-├── index.html          # Главная страница (всё в одном файле)
-├── robots.txt          # Правила для поисковых роботов
-├── sitemap.xml         # Карта сайта для SEO
-└── README.md           # Это описание
+├── index.html
+├── robots.txt
+├── sitemap.xml
+└── README.md
 
 ## 📞 Обратная связь
 
