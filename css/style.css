@@ -314,12 +314,19 @@ section {
     position: relative;
 }
 
+/* ============================================= */
+/* УНИФИКАЦИЯ ЗАГОЛОВКОВ "НЕДЕТСКИЕ ТРЕНДЫ" И "FAQ" */
+/* ============================================= */
+
+/* Делаем оба заголовка одинаковыми */
+.list-header,
 .section-header {
     text-align: center;
     margin-bottom: 80px;
     position: relative;
 }
 
+.list-header h2,
 .section-header h2 {
     font-size: 56px;
     font-weight: 100;
@@ -327,8 +334,12 @@ section {
     margin-bottom: 20px;
     position: relative;
     display: inline-block;
+    color: #000;
 }
 
+/* Черточки слева и справа для обоих */
+.list-header h2::before,
+.list-header h2::after,
 .section-header h2::before,
 .section-header h2::after {
     content: '';
@@ -338,21 +349,29 @@ section {
     background: #000;
     top: 50%;
     transform: translateY(-50%);
+    display: block;
 }
 
+/* Черточка слева */
+.list-header h2::before,
 .section-header h2::before {
     left: -50px;
 }
 
+/* Черточка справа */
+.list-header h2::after,
 .section-header h2::after {
     right: -50px;
 }
 
-.section-header p {
-    font-size: 16px;
-    color: #666;
-    max-width: 600px;
+/* Линия под заголовком для обоих */
+.list-header .header-line,
+.section-header .header-line {
+    width: 60px;
+    height: 1px;
+    background: #000;
     margin: 0 auto;
+    display: block;
 }
 
 /* Стили для блока "Недетские тренды" */
@@ -365,50 +384,6 @@ section {
 .vertical-list {
     max-width: 800px;
     margin: 0 auto;
-}
-
-.list-header {
-    margin-bottom: 60px;
-    position: relative;
-    text-align: center;
-}
-
-.list-header h2 {
-    font-size: 56px;
-    font-weight: 100;
-    letter-spacing: -1px;
-    color: #000;
-    margin: 0 0 20px 0;
-    position: relative;
-    display: inline-block;
-}
-
-.list-header h2::before,
-.list-header h2::after {
-    content: '';
-    position: absolute;
-    width: 30px;
-    height: 1px;
-    background: #000;
-    top: 50%;
-    transform: translateY(-50%);
-    display: block;
-}
-
-.list-header h2::before {
-    left: -50px;
-}
-
-.list-header h2::after {
-    right: -50px;
-}
-
-.header-line {
-    width: 60px;
-    height: 1px;
-    background: #000;
-    margin: 0 auto;
-    display: block;
 }
 
 .list-item {
@@ -1311,23 +1286,32 @@ section {
         margin: 15px 0 0 0;
     }
     
-    /* Заголовки секций */
+    /* УНИФИКАЦИЯ ЗАГОЛОВКОВ */
+    .list-header h2,
     .section-header h2 {
         font-size: 36px;
+        margin-bottom: 15px;
     }
+    .list-header,
+    .section-header {
+        margin-bottom: 50px;
+    }
+    .list-header h2::before,
+    .list-header h2::after,
     .section-header h2::before,
     .section-header h2::after {
-        display: none;
+        width: 20px;
+    }
+    .list-header h2::before,
+    .section-header h2::before {
+        left: -35px;
+    }
+    .list-header h2::after,
+    .section-header h2::after {
+        right: -35px;
     }
     
     /* Блок "Недетские тренды" */
-    .list-header h2 {
-        font-size: 36px;
-    }
-    .list-header h2::before,
-    .list-header h2::after {
-        display: none;
-    }
     .list-item {
         gap: 20px;
         margin-bottom: 40px;
@@ -1552,13 +1536,34 @@ section {
         letter-spacing: 0.5px;
     }
     
+    /* УНИФИКАЦИЯ ЗАГОЛОВКОВ */
+    .list-header h2,
+    .section-header h2 {
+        font-size: 28px;
+        margin-bottom: 12px;
+    }
+    .list-header,
+    .section-header {
+        margin-bottom: 40px;
+    }
+    .list-header h2::before,
+    .list-header h2::after,
+    .section-header h2::before,
+    .section-header h2::after {
+        width: 15px;
+    }
+    .list-header h2::before,
+    .section-header h2::before {
+        left: -25px;
+    }
+    .list-header h2::after,
+    .section-header h2::after {
+        right: -25px;
+    }
+    
     /* Блок "Недетские тренды" */
     .conclusions-section {
         padding: 40px 15px;
-    }
-    .list-header h2 {
-        font-size: 28px;
-        margin-bottom: 15px;
     }
     .list-item {
         gap: 15px;
@@ -1654,21 +1659,38 @@ section {
         justify-content: center;
         padding: 12px 16px;
     }
-    
-    /* Заголовки секций */
-    .section-header h2 {
-        font-size: 28px;
-    }
 }
 
 /* === МАЛЕНЬКИЕ СМАРТФОНЫ (до 375px) === */
 @media (max-width: 375px) {
+    /* УНИФИКАЦИЯ ЗАГОЛОВКОВ */
+    .list-header h2,
+    .section-header h2 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+    .list-header,
+    .section-header {
+        margin-bottom: 35px;
+    }
+    .list-header h2::before,
+    .list-header h2::after,
+    .section-header h2::before,
+    .section-header h2::after {
+        width: 10px;
+    }
+    .list-header h2::before,
+    .section-header h2::before {
+        left: -20px;
+    }
+    .list-header h2::after,
+    .section-header h2::after {
+        right: -20px;
+    }
+    
     /* Блок "Недетские тренды" */
     .conclusions-section {
         padding: 30px 12px;
-    }
-    .list-header h2 {
-        font-size: 24px;
     }
     .list-item {
         gap: 12px;
@@ -1800,15 +1822,35 @@ section {
         font-size: 13px;
         padding: 7px 0;
     }
-    
-    /* Заголовки секций */
-    .section-header h2 {
-        font-size: 24px;
-    }
 }
 
 /* === ОЧЕНЬ МАЛЕНЬКИЕ ЭКРАНЫ (до 320px) === */
 @media (max-width: 320px) {
+    /* УНИФИКАЦИЯ ЗАГОЛОВКОВ */
+    .list-header h2,
+    .section-header h2 {
+        font-size: 22px;
+        margin-bottom: 8px;
+    }
+    .list-header,
+    .section-header {
+        margin-bottom: 30px;
+    }
+    .list-header h2::before,
+    .list-header h2::after,
+    .section-header h2::before,
+    .section-header h2::after {
+        width: 8px;
+    }
+    .list-header h2::before,
+    .section-header h2::before {
+        left: -15px;
+    }
+    .list-header h2::after,
+    .section-header h2::after {
+        right: -15px;
+    }
+    
     /* Герой-секция */
     .hero h1 {
         font-size: 32px;
@@ -1817,9 +1859,6 @@ section {
     /* Блок "Недетские тренды" */
     .conclusions-section {
         padding: 25px 10px;
-    }
-    .list-header h2 {
-        font-size: 22px;
     }
     .list-item {
         gap: 10px;
@@ -1863,10 +1902,5 @@ section {
     /* Мобильная навигация */
     .mobile-logo {
         font-size: 15px;
-    }
-    
-    /* Заголовки секций */
-    .section-header h2 {
-        font-size: 22px;
     }
 }
