@@ -746,7 +746,7 @@ console.log('=== Яндекс.Метрика цели загружены ===');
 console.log('=== ВНЕШНИЕ ССЫЛКИ ===');
 console.log('Клик Telegram: 501358129');
 console.log('Клик Email: 501358195');
-console.log('Клик Постановление: click_postanovlenie_1121');
+console.log('Клик Постановление: 502773171');
 console.log('Клик ЧСОШ: 501358230');
 console.log('Клик Боково: 501358247');
 
