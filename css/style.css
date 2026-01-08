@@ -319,8 +319,9 @@ section {
 /* ============================================= */
 
 /* Делаем оба заголовка одинаковыми */
-.list-header,
-.section-header {
+.list-header, 
+.section-header,
+.faq-section > .vertical-list > .list-header {
     text-align: center;
     margin-bottom: 80px;
     position: relative;
