@@ -70,7 +70,7 @@ kids-chg-2028/
 ├── js/
 │   └── script.js
 ├── images/
-    └── og-image2.jpeg
+│   └── og-image2.jpeg
 ├── index.html
 ├── robots.txt
 ├── sitemap.xml
