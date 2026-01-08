@@ -63,7 +63,17 @@
 - **GitHub Pages** — бесплатный хостинг
 
 ### Структура файлов
-<pre> kids-chg-2028/ ├── index.html ├── robots.txt ├── sitemap.xml └── README.md </pre>
+<pre>
+kids-chg-2028/
+├── css/
+│   └── style.css
+├── js/
+│   └── script.js
+├── index.html
+├── robots.txt
+├── sitemap.xml
+└── README.md
+</pre>
 
 ## 📞 Обратная связь
 
