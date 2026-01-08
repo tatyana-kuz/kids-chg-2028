@@ -1,0 +1,2015 @@
+/* Сброс стилей по умолчанию */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Основные стили body */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: #000;
+    background: #fff;
+    overflow-x: hidden;
+}
+
+/* Навигация - десктопная версия */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    padding: 20px 0;
+    border-bottom: 2px solid #000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    position: relative;
+    color: #000;
+    text-decoration: none;
+}
+
+.logo::after {
+    content: '';
+    position: absolute;
+    right: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    background: #000;
+}
+
+.nav-links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: #000;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    position: relative;
+}
+
+.nav-links a::before {
+    content: '';
+    position: absolute;
+    left: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 1px;
+    background: #000;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::before,
+.nav-links a.active::before {
+    width: 10px;
+}
+
+.nav-links a.active {
+    font-weight: 700;
+}
+
+/* Навигация - мобильная версия */
+.mobile-nav {
+    display: none;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    padding: 15px 0;
+    border-bottom: 2px solid #000;
+}
+
+.mobile-nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mobile-logo {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    color: #000;
+    text-decoration: none;
+}
+
+.mobile-menu-toggle {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #000;
+    padding: 5px;
+}
+
+.mobile-menu {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: white;
+    border-bottom: 2px solid #000;
+    padding: 20px;
+    display: none;
+    z-index: 999;
+}
+
+.mobile-menu.active {
+    display: block;
+}
+
+.mobile-menu-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.mobile-menu-links a {
+    color: #000;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    display: block;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.mobile-menu-links a:last-child {
+    border-bottom: none;
+}
+
+/* Герой-секция (заглавный блок) */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px;
+    position: relative;
+    overflow: hidden;
+    background: #fafafa;
+}
+
+.hero-content {
+    text-align: center;
+    max-width: 800px;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    padding: 120px 0 30px 0;
+}
+
+.hero h1 {
+    font-size: clamp(48px, 8vw, 88px);
+    font-weight: 100;
+    letter-spacing: -3px;
+    margin-bottom: 60px;
+    line-height: 0.9;
+    position: relative;
+}
+
+.hero h1 strong {
+    font-weight: 700;
+}
+
+.hero h1::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background: #000;
+}
+
+.years {
+    font-size: 0.7em;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.hero-title-block {
+    margin-bottom: 60px;
+}
+
+.hero-subtitle {
+    font-size: 16px;
+    color: #000;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    line-height: 1.6;
+}
+
+/* Индикатор прокрутки (стрелка вниз) */
+.scroll-indicator {
+    margin-bottom: 20px;
+    animation: fadeIn 1s ease 0.5s both;
+}
+
+.arrow-circle {
+    width: 60px;
+    height: 60px;
+    border: 2px solid rgba(44, 85, 48, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    animation: pulse-circle 2s infinite;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.arrow-circle:hover {
+    transform: scale(1.1);
+    border-color: rgba(44, 85, 48, 0.5);
+}
+
+.arrow-circle::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 2px solid rgba(44, 85, 48, 0.1);
+    border-radius: 50%;
+    animation: pulse-outer 2s infinite;
+}
+
+.arrow-inner {
+    font-size: 24px;
+    color: #2c5530;
+    animation: bounce-arrow 2s infinite;
+}
+
+/* Анимации для индикатора прокрутки */
+@keyframes pulse-circle {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+@keyframes pulse-outer {
+    0% { transform: scale(1); opacity: 0.3; }
+    100% { transform: scale(1.5); opacity: 0; }
+}
+
+@keyframes bounce-arrow {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-8px); }
+    60% { transform: translateY(-4px); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Основной контейнер для контента */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Стили для основных секций */
+section {
+    padding: 120px 20px;
+    position: relative;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 80px;
+    position: relative;
+}
+
+.section-header h2 {
+    font-size: 56px;
+    font-weight: 100;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+.section-header h2::before,
+.section-header h2::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 1px;
+    background: #000;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.section-header h2::before {
+    left: -50px;
+}
+
+.section-header h2::after {
+    right: -50px;
+}
+
+.section-header p {
+    font-size: 16px;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Стили для блока "Недетские тренды" */
+.conclusions-section {
+    background: white;
+    margin: 0;
+    padding: 80px 20px;
+}
+
+.vertical-list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.list-header {
+    margin-bottom: 60px;
+    position: relative;
+    text-align: center;
+}
+
+.list-header h2 {
+    font-size: 56px;
+    font-weight: 100;
+    letter-spacing: -1px;
+    color: #000;
+    margin: 0 0 20px 0;
+    position: relative;
+    display: inline-block;
+}
+
+.list-header h2::before,
+.list-header h2::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 1px;
+    background: #000;
+    top: 50%;
+    transform: translateY(-50%);
+    display: block;
+}
+
+.list-header h2::before {
+    left: -50px;
+}
+
+.list-header h2::after {
+    right: -50px;
+}
+
+.header-line {
+    width: 60px;
+    height: 1px;
+    background: #000;
+    margin: 0 auto;
+    display: block;
+}
+
+.list-item {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.list-item:last-child {
+    margin-bottom: 0;
+}
+
+.item-marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.marker-icon {
+    font-size: 20px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8f9fa;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    color: #2c5530;
+}
+
+.marker-line {
+    width: 1px;
+    flex-grow: 1;
+    background: #eaeaea;
+}
+
+.list-item:last-child .marker-line {
+    display: none;
+}
+
+.item-content {
+    padding-bottom: 20px;
+    flex: 1;
+}
+
+/* Заголовки пунктов в блоке "Недетские тренды" */
+.item-content h3 {
+    font-size: 20px;
+    font-weight: 400;
+    color: #2c5530;
+    margin: 0 0 12px 0;
+    line-height: 1.3;
+    letter-spacing: -0.3px;
+    background: none;
+    padding: 0;
+    border-left: none;
+    border-radius: 0;
+}
+
+.item-content p {
+    font-size: 16px;
+    color: #000;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.item-content strong {
+    font-weight: 400;
+    color: #000;
+}
+
+/* Стили для блоков с графиками */
+.chart-section {
+    background: white;
+    margin-bottom: 60px;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.chart-title {
+    font-size: 28px;
+    font-weight: 300;
+    margin-bottom: 30px;
+    letter-spacing: -0.5px;
+    color: #000;
+}
+
+.chart-subtitle {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 30px;
+    font-weight: 400;
+}
+
+.chart-container {
+    position: relative;
+    height: 400px;
+    margin-bottom: 30px;
+}
+
+.chart-container-large {
+    height: 600px;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.chart-explanation {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 6px;
+    margin: 30px 0;
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Подсказка для легенды графиков */
+.legend-hint {
+    background: #f0f7f1;
+    padding: 12px 15px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    border-left: 4px solid #2c5530;
+    font-size: 13px;
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.legend-hint::before {
+    content: "💡";
+    font-size: 16px;
+}
+
+/* Блок с дополнительной информацией */
+.highlight-info {
+    background: #f0f7f1;
+    padding: 20px;
+    border-radius: 6px;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+/* Таблица экстремальных возрастов */
+.extreme-ages-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.extreme-ages-table th {
+    text-align: left;
+    padding: 12px 15px;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: #2c5530;
+    font-size: 14px;
+}
+
+.extreme-ages-table td {
+    padding: 10px 15px;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 14px;
+}
+
+.extreme-ages-table tr:last-child td {
+    border-bottom: none;
+}
+
+.year-color {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+/* Сетка статистических карточек */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.stat-card {
+    background: #f8f9fa;
+    padding: 25px 20px;
+    border-radius: 6px;
+    text-align: center;
+    border-left: 4px solid #2c5530;
+}
+
+.stat-value {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.negative-change {
+    color: #e74c3c;
+}
+
+.positive-change {
+    color: #2c5530;
+}
+
+.stat-label {
+    color: #666;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.period-note {
+    color: #868e96;
+    font-size: 12px;
+    margin-top: 8px;
+}
+
+/* Стили для блока детских садов */
+.kindergartens-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 25px;
+    padding: 12px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+.kindergartens-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.kg-item {
+    background: white;
+    border-radius: 10px;
+    padding: 14px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.kg-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.kg-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.kg-left {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    flex: 1;
+    min-width: 0;
+}
+
+.kg-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: white;
+    flex-shrink: 0;
+    margin-top: 2px;
+    background: #f0f0f0 !important;
+}
+
+.kg-name-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 38px;
+    justify-content: center;
+    flex: 1;
+    min-width: 0;
+}
+
+.kg-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #2c5530;
+    line-height: 1.2;
+}
+
+.kg-closed {
+    font-size: 11px;
+    color: #e74c3c;
+    margin-top: 2px;
+    line-height: 1.2;
+}
+
+.kg-capacity {
+    font-size: 13px;
+    color: #2c5530;
+    font-weight: 600;
+    text-align: right;
+    white-space: nowrap;
+    background: #f0f7f1;
+    padding: 6px 10px;
+    border-radius: 6px;
+    display: inline-block;
+    align-self: flex-start;
+}
+
+.years-progress {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.year-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.year-label {
+    font-size: 11px;
+    color: #666;
+    width: 68px;
+    flex-shrink: 0;
+}
+
+.progress-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.progress-bar {
+    flex: 1;
+    height: 16px;
+    background: #f0f0f0;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    min-width: 0;
+}
+
+.progress-fill {
+    height: 100%;
+    border-radius: 8px;
+    transition: width 0.3s ease;
+    min-width: 0;
+}
+
+.progress-value {
+    font-size: 11px;
+    font-weight: 600;
+    width: 32px;
+    text-align: right;
+    flex-shrink: 0;
+}
+
+/* Скрытый чекбокс для раскрытия подробностей */
+.details-toggle {
+    display: none;
+}
+
+.details-toggle-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-size: 11px;
+    color: #666;
+    margin-top: 12px;
+    padding: 8px;
+    background: #f8f9fa;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    text-align: center;
+    width: 100%;
+}
+
+.details-toggle-label:hover {
+    background: #f0f0f0;
+}
+
+.toggle-icon {
+    font-size: 10px;
+    transition: transform 0.3s ease;
+}
+
+.details-toggle:checked + .details-toggle-label .toggle-icon {
+    transform: rotate(180deg);
+}
+
+.details-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    margin-top: 0;
+}
+
+.details-toggle:checked ~ .details-content {
+    max-height: 200px;
+    margin-top: 10px;
+}
+
+.details-table {
+    width: 100%;
+    font-size: 11px;
+    border-collapse: collapse;
+    background: #f8f9fa;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.details-table th {
+    text-align: left;
+    padding: 10px 12px;
+    background: #f0f0f0;
+    color: #666;
+    font-weight: 500;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.details-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #e0e0e0;
+    color: #333;
+    font-weight: normal;
+}
+
+.details-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Элементы легенды */
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: #666;
+}
+
+.legend-color {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+/* Сводная статистика */
+.summary-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.summary-stat-card {
+    background: #f8f9fa;
+    padding: 25px 20px;
+    border-radius: 6px;
+    text-align: center;
+    border-left: 4px solid #2c5530;
+}
+
+.summary-stat-value {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #2c5530;
+}
+
+.summary-stat-label {
+    color: #666;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.summary-period-note {
+    color: #868e96;
+    font-size: 12px;
+    margin-top: 8px;
+}
+
+/* Блок с информацией о данных */
+.data-info-block {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 6px;
+    margin: 30px 0;
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+}
+
+.source-link {
+    color: #2c5530;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.source-link:hover {
+    text-decoration: underline;
+}
+
+/* Мобильная версия таблицы возрастов */
+.mobile-ages-grid {
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.mobile-age-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.mobile-age-year {
+    padding: 12px 15px;
+    font-weight: 600;
+    font-size: 15px;
+    background: #f8f9fa;
+    border-left: 4px solid;
+}
+
+.mobile-age-details {
+    padding: 12px 15px;
+}
+
+.mobile-age-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.mobile-age-item:last-child {
+    border-bottom: none;
+}
+
+.mobile-age-label {
+    font-size: 13px;
+    color: #666;
+    flex: 1;
+}
+
+.mobile-age-value {
+    font-size: 14px;
+    font-weight: 600;
+    color: #2c5530;
+    min-width: 60px;
+    text-align: right;
+}
+
+.desktop-only {
+    display: table;
+}
+
+/* Стили для блока школ */
+.schools-section {
+    background: white;
+    margin-bottom: 60px;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* Визуализация сдвига возраста */
+.schools-visualization {
+    background: #f8f9fa;
+    padding: 30px 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.schools-visualization-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #2c5530;
+    margin-bottom: 25px;
+    letter-spacing: 0.5px;
+}
+
+.age-shift-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    position: relative;
+    padding: 0 10px;
+}
+
+.age-year-block {
+    text-align: center;
+    flex: 1;
+}
+
+.age-circle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 12px;
+    font-size: 24px;
+    font-weight: 700;
+    color: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    padding: 5px;
+    line-height: 1.1;
+}
+
+.age-year-label {
+    font-size: 14px;
+    color: #666;
+    font-weight: 500;
+}
+
+.arrow-line {
+    position: relative;
+    flex: 1;
+    height: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.arrow-line-fill {
+    width: 90%;
+    height: 2px;
+    background: linear-gradient(90deg, #ff9e4a, #6b9578);
+    border-radius: 1px;
+}
+
+.arrow-line-fill.gray {
+    background: linear-gradient(90deg, #6b9578, #999999);
+}
+
+.arrow-head {
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid #6b9578;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+}
+
+.arrow-head.gray {
+    border-left-color: #999999;
+}
+
+/* Статистика школ */
+.schools-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.schools-stat-card {
+    background: #f8f9fa;
+    padding: 25px 20px;
+    border-radius: 6px;
+    text-align: center;
+    border-left: 4px solid #2c5530;
+}
+
+.schools-stat-value {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #2c5530;
+}
+
+.schools-stat-label {
+    color: #666;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Стили для блока "Вопросы и ответы" */
+.faq-section {
+    background: white;
+    margin: 30px 0 0 0;
+    padding: 60px 20px;
+    position: relative;
+}
+
+.faq-accordion {
+    max-width: 800px;
+    margin: 0 auto 60px;
+}
+
+.faq-item {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.faq-question {
+    width: 100%;
+    padding: 24px 0;
+    text-align: left;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    position: relative;
+    color: #000;
+    font-weight: 400;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.3;
+}
+
+.faq-question:hover {
+    color: #2c5530;
+}
+
+.faq-answer {
+    padding: 0 0 24px 0;
+    display: none;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #000;
+}
+
+.faq-item.active .faq-answer {
+    display: block;
+}
+
+.faq-item.active .faq-question span:last-child {
+    transform: rotate(45deg);
+    transition: transform 0.2s;
+}
+
+.faq-answer a {
+    color: #2c5530;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(44, 85, 48, 0.3);
+    transition: border-color 0.2s;
+    padding-bottom: 1px;
+}
+
+.faq-answer a:hover {
+    border-bottom-color: #2c5530;
+}
+
+.faq-answer p {
+    margin-bottom: 15px;
+}
+
+.faq-answer ul {
+    margin: 15px 0 20px 0;
+    padding-left: 20px;
+}
+
+.faq-answer li {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+/* Контакты в FAQ */
+.faq-contacts {
+    max-width: 800px;
+    margin: 80px auto 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.faq-contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 24px;
+    background-color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #333;
+    transition: all 0.2s ease;
+    font-size: 16px;
+    font-weight: 500;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.faq-contact-link:hover {
+    background-color: #f8f9fa;
+    border-color: #2c5530;
+    box-shadow: 0 4px 12px rgba(44, 85, 48, 0.1);
+}
+
+.faq-contact-link span {
+    color: #2c5530;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+/* Футер FAQ */
+.faq-footer {
+    max-width: 800px;
+    margin: 40px auto 0;
+    padding-top: 30px;
+    border-top: 1px solid #eee;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #666;
+    text-align: center;
+}
+
+.faq-footer p {
+    margin: 0;
+    font-style: normal;
+}
+
+/* Медиа-запросы для унификации заголовков секций */
+@media (max-width: 480px) {
+    .section-header h2 {
+        font-size: 28px; /* Как у .list-header h2 на 480px */
+    }
+}
+
+@media (max-width: 375px) {
+    .section-header h2 {
+        font-size: 24px; /* Как у .list-header h2 на 375px */
+    }
+}
+
+@media (max-width: 320px) {
+    .section-header h2 {
+        font-size: 22px; /* Как у .list-header h2 на 320px */
+    }
+}
+
+/* Адаптивные стили для мобильных устройств (максимальная ширина 768px) */
+@media (max-width: 768px) {
+    /* Скрываем десктопную навигацию, показываем мобильную */
+    nav {
+        display: none;
+    }
+
+    .mobile-nav {
+        display: block;
+    }
+
+    /* Адаптация герой-секции */
+    .hero h1 {
+        font-size: 48px;
+        margin-bottom: 40px;
+    }
+
+    .hero-content {
+        padding: 100px 0 20px 0;
+    }
+
+    .hero-title-block {
+        margin-bottom: 40px;
+    }
+
+    .hero-subtitle {
+        font-size: 14px;
+        letter-spacing: 1px;
+    }
+
+    /* Адаптация заголовков секций */
+    .section-header h2 {
+        font-size: 36px;
+    }
+
+    .section-header h2::before,
+    .section-header h2::after {
+        display: none;
+    }
+
+    /* Адаптация блока "Недетские тренды" */
+    .conclusions-section {
+        padding: 60px 20px;
+    }
+
+    .list-header h2 {
+        font-size: 36px;
+    }
+
+    /* На мобильных скрываем черточки */
+    .list-header h2::before,
+    .list-header h2::after {
+        display: none;
+    }
+
+    .list-item {
+        gap: 20px;
+        margin-bottom: 40px;
+    }
+
+    .marker-icon {
+        font-size: 18px;
+        width: 40px;
+        height: 40px;
+        margin-bottom: 12px;
+    }
+
+    .item-content h3 {
+        font-size: 18px;
+    }
+
+    .item-content p {
+        font-size: 15px;
+    }
+
+    /* Адаптация графиков */
+    .chart-container {
+        height: 300px;
+    }
+
+    .chart-container-large {
+        height: 400px;
+    }
+
+    .chart-section {
+        padding: 20px 15px;
+        margin-bottom: 40px;
+    }
+
+    .chart-title {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    /* Адаптация блока школ */
+    .schools-section {
+        padding: 20px 15px;
+        margin-bottom: 40px;
+    }
+
+    /* Адаптация индикатора прокрутки */
+    .arrow-circle {
+        width: 50px;
+        height: 50px;
+    }
+
+    .arrow-inner {
+        font-size: 20px;
+    }
+
+    .scroll-indicator {
+        margin-bottom: 10px;
+    }
+
+    /* Адаптация таблицы экстремальных возрастов */
+    .extreme-ages-table th,
+    .extreme-ages-table td {
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+
+    /* Общие отступы секций */
+    section {
+        padding: 80px 15px;
+    }
+
+    /* Адаптация статистических сеток */
+    .stats-grid,
+    .summary-stats-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 15px;
+    }
+
+    .stat-card,
+    .summary-stat-card {
+        padding: 20px 15px;
+    }
+
+    .stat-value,
+    .summary-stat-value {
+        font-size: 28px;
+    }
+
+    /* Адаптация блока детских садов */
+    .kg-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+    }
+
+    .kg-name {
+        font-size: 15px;
+    }
+
+    .kg-capacity {
+        font-size: 12px;
+        padding: 4px 8px;
+    }
+
+    .year-label {
+        width: 60px;
+        font-size: 10px;
+    }
+
+    .progress-bar {
+        height: 14px;
+    }
+
+    .progress-value {
+        font-size: 10px;
+        width: 28px;
+    }
+
+    .details-toggle-label {
+        font-size: 10px;
+        padding: 6px;
+    }
+
+    .details-table {
+        font-size: 10px;
+    }
+
+    .details-table th,
+    .details-table td {
+        padding: 8px 10px;
+    }
+
+    /* Скрываем десктопную таблицу, показываем мобильную */
+    .desktop-only {
+        display: none;
+    }
+
+    .mobile-ages-grid {
+        display: flex;
+    }
+
+    /* Адаптация визуализации сдвига возраста для мобильных */
+    .schools-visualization {
+        padding: 20px 15px;
+    }
+
+    .age-shift-container {
+        flex-direction: column;
+        gap: 30px;
+        padding: 0;
+    }
+
+    .age-year-block {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .age-circle {
+        width: 60px;
+        height: 60px;
+        font-size: 20px;
+        margin: 0;
+        flex-shrink: 0;
+    }
+
+    .arrow-line {
+        display: none;
+    }
+
+    /* Вертикальные стрелки для мобильных */
+    .vertical-arrow-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .vertical-line {
+        width: 2px;
+        height: 30px;
+        background: linear-gradient(to bottom, #ff9e4a, #6b9578);
+    }
+
+    .vertical-line.gray {
+        background: linear-gradient(to bottom, #6b9578, #999999);
+    }
+
+    .vertical-arrow {
+        width: 0;
+        height: 0;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-top: 10px solid #6b9578;
+    }
+
+    .vertical-arrow.gray {
+        border-top-color: #999999;
+    }
+
+    /* Адаптация статистики школ */
+    .schools-stats-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .schools-stat-card {
+        padding: 20px 15px;
+    }
+
+    .schools-stat-value {
+        font-size: 28px;
+    }
+
+    .schools-stat-label {
+        font-size: 12px;
+    }
+
+    /* Адаптация блока FAQ */
+    .faq-section {
+        padding: 40px 15px;
+        margin: 15px 0 0 0;
+    }
+
+    .faq-question {
+        font-size: 18px;
+        padding: 20px 0;
+    }
+
+    .faq-answer {
+        font-size: 15px;
+    }
+
+    .faq-contact-link {
+        padding: 14px 20px;
+        font-size: 15px;
+    }
+
+    .faq-contact-link svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .faq-contacts {
+        margin: 60px auto 30px;
+        gap: 15px;
+    }
+
+    .faq-footer {
+        margin: 30px auto 0;
+        padding-top: 20px;
+        font-size: 13px;
+    }
+
+    /* Адаптация мобильной навигации */
+    .mobile-menu-links a {
+        font-size: 15px;
+    }
+}
+
+/* Адаптивные стили для маленьких экранов (максимальная ширина 480px) */
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero-subtitle {
+        font-size: 12px;
+        letter-spacing: 0.5px;
+    }
+
+    /* Адаптация блока "Недетские тренды" для маленьких экранов */
+    .conclusions-section {
+        padding: 40px 15px;
+    }
+
+    .list-header h2 {
+        font-size: 28px;
+        margin-bottom: 15px;
+    }
+
+    .list-item {
+        gap: 15px;
+        margin-bottom: 30px;
+    }
+
+    .marker-icon {
+        font-size: 16px;
+        width: 36px;
+        height: 36px;
+        margin-bottom: 10px;
+    }
+
+    .item-content h3 {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+
+    .item-content p {
+        font-size: 14px;
+    }
+
+    /* Адаптация графиков */
+    .chart-container {
+        height: 250px;
+    }
+
+    .chart-container-large {
+        height: 350px;
+    }
+
+    .chart-title {
+        font-size: 20px;
+    }
+
+    .chart-explanation,
+    .data-info-block {
+        padding: 15px;
+        font-size: 13px;
+    }
+
+    /* Адаптация статистических сеток */
+    .stats-grid,
+    .summary-stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stat-value,
+    .summary-stat-value {
+        font-size: 24px;
+    }
+
+    .stat-label,
+    .summary-stat-label {
+        font-size: 12px;
+    }
+
+    /* Адаптация легенды детских садов */
+    .kindergartens-legend {
+        gap: 6px;
+        justify-content: flex-start;
+        padding: 10px;
+    }
+
+    .legend-item {
+        font-size: 10px;
+    }
+
+    .legend-color {
+        width: 8px;
+        height: 8px;
+    }
+
+    /* Адаптация мобильной таблицы возрастов */
+    .mobile-age-year {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+
+    .mobile-age-details {
+        padding: 10px 12px;
+    }
+
+    .mobile-age-label {
+        font-size: 12px;
+    }
+
+    .mobile-age-value {
+        font-size: 13px;
+        min-width: 50px;
+    }
+
+    /* Адаптация визуализации возраста для очень маленьких экранов */
+    .age-circle {
+        width: 55px;
+        height: 55px;
+        font-size: 18px;
+    }
+
+    .age-year-label {
+        font-size: 12px;
+    }
+
+    .vertical-line {
+        height: 25px;
+    }
+
+    /* Адаптация блока FAQ для маленьких экранов */
+    .faq-section {
+        padding: 35px 15px;
+    }
+
+    .faq-question {
+        font-size: 16px;
+        padding: 18px 0;
+    }
+
+    .faq-answer {
+        font-size: 14px;
+    }
+
+    .faq-contact-link {
+        width: 100%;
+        justify-content: center;
+        padding: 12px 16px;
+    }
+
+    /* Адаптация мобильной навигации для маленьких экранов */
+    .mobile-nav {
+        padding: 12px 0;
+    }
+
+    .mobile-logo {
+        font-size: 18px;
+    }
+
+    .mobile-menu-toggle {
+        font-size: 20px;
+    }
+
+    .mobile-menu {
+        top: 55px;
+        padding: 15px;
+    }
+
+    .mobile-menu-links a {
+        font-size: 14px;
+        padding: 8px 0;
+    }
+}
+
+/* Адаптивные стили для iPhone 13 mini и подобных (максимальная ширина 375px) */
+@media (max-width: 375px) {
+    /* Адаптация блока "Недетские тренды" для iPhone 13 mini */
+    .conclusions-section {
+        padding: 30px 12px;
+    }
+
+    .list-header h2 {
+        font-size: 24px;
+    }
+
+    .list-item {
+        gap: 12px;
+        margin-bottom: 25px;
+    }
+
+    .marker-icon {
+        font-size: 14px;
+        width: 32px;
+        height: 32px;
+        margin-bottom: 8px;
+    }
+
+    .item-content h3 {
+        font-size: 15px;
+    }
+
+    .item-content p {
+        font-size: 13px;
+    }
+
+    /* Адаптация блока детских садов */
+    .kg-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .kg-left {
+        width: 100%;
+    }
+
+    .kg-capacity {
+        align-self: flex-start;
+        margin-top: 4px;
+    }
+
+    .year-label {
+        width: 55px;
+        font-size: 9px;
+    }
+
+    .progress-container {
+        gap: 6px;
+    }
+
+    .progress-value {
+        width: 25px;
+        font-size: 9px;
+    }
+
+    .kindergartens-legend {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+
+    .kg-icon {
+        width: 30px;
+        height: 30px;
+        font-size: 13px;
+    }
+
+    .kg-name {
+        font-size: 14px;
+    }
+
+    .kg-closed {
+        font-size: 10px;
+    }
+
+    .details-toggle-label {
+        font-size: 9px;
+        padding: 5px;
+    }
+
+    .toggle-icon {
+        font-size: 9px;
+    }
+
+    .details-table {
+        font-size: 9px;
+    }
+
+    .details-table th,
+    .details-table td {
+        padding: 6px 8px;
+    }
+
+    /* Адаптация блока школ для iPhone 13 mini */
+    .age-circle {
+        width: 50px;
+        height: 50px;
+        font-size: 16px;
+    }
+
+    .age-year-block {
+        gap: 15px;
+    }
+
+    .chart-title {
+        font-size: 22px;
+    }
+
+    /* Адаптация блока FAQ для iPhone 13 mini */
+    .faq-section {
+        padding: 30px 12px;
+    }
+
+    .faq-question {
+        font-size: 15px;
+        padding: 16px 0;
+    }
+
+    .faq-answer {
+        font-size: 13px;
+    }
+
+    .faq-answer ul {
+        padding-left: 15px;
+    }
+
+    .faq-contact-link {
+        padding: 10px 14px;
+        font-size: 14px;
+    }
+
+    .faq-contact-link svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .faq-footer {
+        font-size: 12px;
+        padding-top: 15px;
+    }
+
+    /* Адаптация мобильной навигации для iPhone 13 mini */
+    .mobile-nav {
+        padding: 10px 0;
+    }
+
+    .mobile-logo {
+        font-size: 16px;
+    }
+
+    .mobile-menu-toggle {
+        font-size: 18px;
+        padding: 3px;
+    }
+
+    .mobile-menu {
+        top: 50px;
+        padding: 12px;
+    }
+
+    .mobile-menu-links a {
+        font-size: 13px;
+        padding: 7px 0;
+    }
+}
+
+/* Адаптивные стили для очень маленьких экранов (максимальная ширина 320px) */
+@media (max-width: 320px) {
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    /* Адаптация блока "Недетские тренды" для очень маленьких экранов */
+    .conclusions-section {
+        padding: 25px 10px;
+    }
+
+    .list-header h2 {
+        font-size: 22px;
+    }
+
+    .list-item {
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    .marker-icon {
+        font-size: 13px;
+        width: 28px;
+        height: 28px;
+    }
+
+    .item-content h3 {
+        font-size: 14px;
+    }
+
+    .item-content p {
+        font-size: 12px;
+    }
+
+    /* Адаптация графиков */
+    .chart-container {
+        height: 200px;
+    }
+
+    /* Адаптация статистических сеток */
+    .stats-grid,
+    .summary-stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Адаптация визуализации возраста */
+    .age-circle {
+        width: 45px;
+        height: 45px;
+        font-size: 15px;
+    }
+
+    /* Адаптация блока FAQ для очень маленьких экранов */
+    .faq-section {
+        padding: 25px 10px;
+    }
+
+    .faq-question {
+        font-size: 14px;
+    }
+
+    .faq-answer {
+        font-size: 12px;
+    }
+
+    /* Адаптация мобильной навигации */
+    .mobile-logo {
+        font-size: 15px;
+    }
+}
