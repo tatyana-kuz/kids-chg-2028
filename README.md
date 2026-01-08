@@ -69,6 +69,8 @@ kids-chg-2028/
 │   └── style.css
 ├── js/
 │   └── script.js
+├── images/
+    └── og-image2.jpeg
 ├── index.html
 ├── robots.txt
 ├── sitemap.xml
