@@ -1,5 +1,3 @@
-console.log('=== НАЧАЛО СКРИПТА ===');
-
 // Конфигурация
 const CONFIG = {
     primaryColor: '#2c5530',
