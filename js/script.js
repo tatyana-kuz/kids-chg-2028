@@ -67,7 +67,7 @@ const chartHandlers = {
             const ci = this.chart;
             ci.data.datasets[index].hidden = !ci.data.datasets[index].hidden;
             ci.update();
-            utils.trackGoal('501358321');
+            utils.trackGoal('chart_legend_toggle');
         };
     },
 
@@ -331,7 +331,7 @@ const kindergartenManager = {
         checkboxes.forEach((checkbox, index) => {
             checkbox.addEventListener('change', function() {
                 if (this.checked) {
-                    utils.trackGoal('501358286');
+                    utils.trackGoal('kg_details_opened');
                 }
             });
         });
@@ -431,7 +431,7 @@ const faqManager = {
 
             question.addEventListener('click', () => {
                 if (!item.classList.contains('active')) {
-                    utils.trackGoal('501358319');
+                    utils.trackGoal('faq_opened');
                 }
                 
                 faqItems.forEach(otherItem => {
@@ -466,8 +466,12 @@ const analyticsManager = {
             const observer = new IntersectionObserver((entries) => {
                 if (entries[0].isIntersecting) {
                     viewedCount++;
-                    if (viewedCount === 3) utils.trackGoal('501358573');
-                    if (viewedCount === 5) utils.trackGoal('501358588');
+                    if (viewedCount === 3) {
+                        if (typeof ym === 'function') {
+                            ym(CONFIG.ymId, 'reachGoal', 'viewed_3_sections');
+                        }
+                        console.log('Цель: viewed_3_sections');
+                    }
                     observer.disconnect();
                 }
             }, { threshold: 0.3 });
