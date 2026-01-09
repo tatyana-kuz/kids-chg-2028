@@ -40,13 +40,10 @@ const utils = {
         if (typeof ym === 'function') {
             ym(CONFIG.ymId, 'reachGoal', goal);
         }
-        console.log(`Цель: ${goal}`);
     },
 
     safeQuery(selector) {
-        const element = document.querySelector(selector);
-        if (!element) console.warn(`Элемент не найден: ${selector}`);
-        return element;
+        return document.querySelector(selector);
     },
 
     getColorForPercentage(percent) {
@@ -392,10 +389,7 @@ const navigationManager = {
         const mobileMenuToggle = document.getElementById('mobileMenuToggle');
         const mobileMenu = document.getElementById('mobileMenu');
         
-        if (!mobileMenuToggle || !mobileMenu) {
-            console.error('Не найдены элементы мобильного меню');
-            return;
-        }
+        if (!mobileMenuToggle || !mobileMenu) return;
 
         mobileMenuToggle.addEventListener('click', () => {
             mobileMenu.classList.toggle('active');
@@ -468,7 +462,6 @@ const analyticsManager = {
                         if (typeof ym === 'function') {
                             ym(CONFIG.ymId, 'reachGoal', 'viewed_3_sections');
                         }
-                        console.log('Цель: viewed_3_sections');
                     }
                     observer.disconnect();
                 }
@@ -550,9 +543,7 @@ function initializeApp() {
         // Обработчики событий
         window.addEventListener('resize', utils.debounce(responsiveManager.adaptSchoolsForMobile, 150));
         
-        console.log('=== ПРИЛОЖЕНИЕ УСПЕШНО ЗАГРУЖЕНО ===');
     } catch (error) {
-        console.error('Ошибка инициализации:', error);
     }
 }
 
@@ -562,5 +553,3 @@ if (document.readyState === 'loading') {
 } else {
     initializeApp();
 }
-// Логи для отладки метрики
-console.log('=== Яндекс.Метрика цели загружены ===');
