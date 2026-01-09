@@ -37,8 +37,8 @@ const utils = {
     },
 
     trackGoal(goal) {
-        if (typeof ym === 'function') {
-            ym(CONFIG.ymId, 'reachGoal', goal);
+        if (window.ym && typeof window.ym === 'function') {
+            window.ym(CONFIG.ymId, 'reachGoal', goal);
         }
     },
 
@@ -381,6 +381,7 @@ const navigationManager = {
                 const offset = 80;
                 const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
                 window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                utils.trackGoal('arrow_click');
             });
         }
     },
@@ -393,6 +394,7 @@ const navigationManager = {
 
         mobileMenuToggle.addEventListener('click', () => {
             mobileMenu.classList.toggle('active');
+            utils.trackGoal('mobile_menu_open');
         });
 
         document.querySelectorAll('.mobile-menu-links a').forEach(link => {
@@ -459,8 +461,9 @@ const analyticsManager = {
                 if (entries[0].isIntersecting) {
                     viewedCount++;
                     if (viewedCount === 3) {
-                        if (typeof ym === 'function') {
-                            ym(CONFIG.ymId, 'reachGoal', 'viewed_3_sections');
+                        // Прямой вызов ym для цели viewed_3_sections
+                        if (window.ym && typeof window.ym === 'function') {
+                            window.ym(CONFIG.ymId, 'reachGoal', 'viewed_3_sections');
                         }
                     }
                     observer.disconnect();
@@ -478,8 +481,8 @@ const analyticsManager = {
             if (url !== lastUrl) {
                 lastUrl = url;
                 const anchor = url.split('#')[1] || 'home';
-                if (typeof ym === 'function') {
-                    ym(CONFIG.ymId, 'hit', '/#' + anchor);
+                if (window.ym && typeof window.ym === 'function') {
+                    window.ym(CONFIG.ymId, 'hit', '/#' + anchor);
                 }
             }
         }).observe(document, {subtree: true, childList: true});
@@ -487,7 +490,10 @@ const analyticsManager = {
 
     setupTimeOnSite() {
         setTimeout(() => {
-            utils.trackGoal('501358884');
+            // Прямой вызов ym для цели 501358884 (время >30 сек)
+            if (window.ym && typeof window.ym === 'function') {
+                window.ym(CONFIG.ymId, 'reachGoal', '501358884');
+            }
         }, 30000);
     }
 };
@@ -544,6 +550,7 @@ function initializeApp() {
         window.addEventListener('resize', utils.debounce(responsiveManager.adaptSchoolsForMobile, 150));
         
     } catch (error) {
+        console.error('Ошибка при инициализации приложения:', error);
     }
 }
 
